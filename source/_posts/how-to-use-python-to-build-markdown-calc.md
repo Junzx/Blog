@@ -1,9 +1,11 @@
 ---
 title: 使用python生成markdown格式的日历
 date: 2018-12-05 00:03:22
+description: 使用python生成某年某月的月历，输出成markdown格式
 tags: 
 	- 随笔
 	- python
+top: 1
 ---
 
 ### 作用：
@@ -115,7 +117,7 @@ tags:
 
 效果：
 
-![image](/how-to-use-python-to-build-markdown-calc/2.jpg)
+![image](/how-to-use-python-to-build-markdown-calc/2.JPG)
 
 
 ### 其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可：
