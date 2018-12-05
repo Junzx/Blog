@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/12/05/how-to-use-python-to-build-markdown-calc/1.png">
 <meta property="og:image" content="http://yoursite.com/2018/12/05/how-to-use-python-to-build-markdown-calc/2.jpg">
-<meta property="og:updated_time" content="2018-12-04T16:21:48.254Z">
+<meta property="og:updated_time" content="2018-12-05T01:19:59.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用python生成markdown格式的日历">
 <meta name="twitter:description" content="作用：使用python生成日报中的日历 参考： python实现输出日历-csdn  代码：# coding=utf-8 __author__ = &amp;apos;Leonard&amp;apos;   def is_leap_year(year):     # 判断是否为闰年     if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:">
@@ -97,7 +97,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#作用："><span class="toc-number">1.</span> <span class="toc-text">作用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">2.</span> <span class="toc-text">参考：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码："><span class="toc-number">3.</span> <span class="toc-text">代码：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示："><span class="toc-number">3.1.</span> <span class="toc-text">主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可："><span class="toc-number">4.</span> <span class="toc-text">其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#貌似hexo不支持表格？"><span class="toc-number">5.</span> <span class="toc-text">貌似hexo不支持表格？</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#作用："><span class="toc-number">1.</span> <span class="toc-text">作用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">2.</span> <span class="toc-text">参考：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码："><span class="toc-number">3.</span> <span class="toc-text">代码：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示："><span class="toc-number">3.1.</span> <span class="toc-text">主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可："><span class="toc-number">4.</span> <span class="toc-text">其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#居中所使用的貌似会使表格失效，因此去掉了该标签"><span class="toc-number">5.</span> <span class="toc-text">! 居中所使用的貌似会使表格失效，因此去掉了该标签</span></a></li></ol>
 		
 		</div>
 		
@@ -161,7 +161,7 @@ def get_month_name(month):
 
 def print_month_title(year, month):
     # 打印日历的首部
-    cal.write(&apos;&lt;center&gt;\n\n\n&apos;)
+
     cal.write(&apos;         &apos; + str(get_month_name(month)) +  &apos;   &apos; + str(year) + &apos;          \n&apos;)
     cal.write(&apos;Sun | Mon | Tue  | Wed | Thu | Fri | Sat \n&apos;)
     cal.write(&apos;---| ---| ---| ---| ---| ---| ---|\n&apos;)
@@ -182,7 +182,7 @@ def print_month_body(year, month):
         i += 1
         if i % 7 == 0:  # i用于计数和换行
             cal.write(&apos;\n&apos;)   # 每换行一次行首继续空格
-    cal.write(&apos;\n\n&lt;/center&gt;\n&apos;)
+
 
 
 #   主函数部分
@@ -200,7 +200,7 @@ cal.close()
 <p><img src="/2018/12/05/how-to-use-python-to-build-markdown-calc/2.jpg" alt="image"></p>
 <h3 id="其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可："><a href="#其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可：" class="headerlink" title="其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可："></a>其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可：</h3><pre><code>&lt;span id=&quot;122&quot;&gt;12-2&lt;/span&gt;
 </code></pre><p>此处id即是日历中的#号后面的id</p>
-<h3 id="貌似hexo不支持表格？"><a href="#貌似hexo不支持表格？" class="headerlink" title="貌似hexo不支持表格？"></a>貌似hexo不支持表格？</h3>  
+<h3 id="居中所使用的貌似会使表格失效，因此去掉了该标签"><a href="#居中所使用的貌似会使表格失效，因此去掉了该标签" class="headerlink" title="! 居中所使用的貌似会使表格失效，因此去掉了该标签"></a>! 居中所使用的<center>貌似会使表格失效，因此去掉了该标签</center></h3>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -286,15 +286,15 @@ cal.close()
 			
 		
 			
+				<li><a href="/tags/CoreNLP/" title="CoreNLP">CoreNLP<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/学习/" title="学习">学习<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/CoreNLP/" title="CoreNLP">CoreNLP<sup>1</sup></a></li>
 			
 		
 			

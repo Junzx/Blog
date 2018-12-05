@@ -71,7 +71,7 @@ tags:
 	 
 	def print_month_title(year, month):
 	    # 打印日历的首部
-	    cal.write('<center>\n\n\n')
+
 	    cal.write('         ' + str(get_month_name(month)) +  '   ' + str(year) + '          \n')
 	    cal.write('Sun | Mon | Tue  | Wed | Thu | Fri | Sat \n')
 	    cal.write('---| ---| ---| ---| ---| ---| ---|\n')
@@ -92,7 +92,7 @@ tags:
 	        i += 1
 	        if i % 7 == 0:  # i用于计数和换行
 	            cal.write('\n')   # 每换行一次行首继续空格
-	    cal.write('\n\n</center>\n')
+
 	 
 	 
 	#   主函数部分
@@ -123,4 +123,4 @@ tags:
 此处id即是日历中的#号后面的id
 
 
-### 貌似hexo不支持表格？
+### ! 居中所使用的<center>貌似会使表格失效，因此去掉了该标签
