@@ -4,28 +4,27 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>使用python生成markdown格式的日历 | Blog of YQ</title>
+    <title>使用python遍历二叉树 | Blog of YQ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Yuanqing Zhu">
     
 
     
-    <meta name="description" content="使用python生成某年某月的月历，输出成markdown格式">
-<meta name="keywords" content="随笔,python">
+    <meta name="description" content="递归遍历二叉树-python实验">
+<meta name="keywords" content="python,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用python生成markdown格式的日历">
-<meta property="og:url" content="http://yoursite.com/2018/12/05/how-to-use-python-to-build-markdown-calc/index.html">
+<meta property="og:title" content="使用python遍历二叉树">
+<meta property="og:url" content="http://yoursite.com/2018/12/06/tree/index.html">
 <meta property="og:site_name" content="Blog of YQ">
-<meta property="og:description" content="使用python生成某年某月的月历，输出成markdown格式">
+<meta property="og:description" content="递归遍历二叉树-python实验">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/12/05/how-to-use-python-to-build-markdown-calc/1.png">
-<meta property="og:image" content="http://yoursite.com/2018/12/05/how-to-use-python-to-build-markdown-calc/2.JPG">
-<meta property="og:updated_time" content="2018-12-05T01:47:16.760Z">
+<meta property="og:image" content="http://yoursite.com/2018/12/06/tree/1.jpg">
+<meta property="og:updated_time" content="2018-12-05T16:23:07.023Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用python生成markdown格式的日历">
-<meta name="twitter:description" content="使用python生成某年某月的月历，输出成markdown格式">
-<meta name="twitter:image" content="http://yoursite.com/2018/12/05/how-to-use-python-to-build-markdown-calc/1.png">
+<meta name="twitter:title" content="使用python遍历二叉树">
+<meta name="twitter:description" content="递归遍历二叉树-python实验">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/06/tree/1.jpg">
 
     
     <link rel="alternative" href="atom.xml" title="Blog of YQ" type="application/atom+xml">
@@ -81,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/12/05/how-to-use-python-to-build-markdown-calc/" title="使用python生成markdown格式的日历" itemprop="url">使用python生成markdown格式的日历</a>
+      <a href="/2018/12/06/tree/" title="使用python遍历二叉树" itemprop="url">使用python遍历二叉树</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Yuanqing Zhu" target="_blank" itemprop="author">Yuanqing Zhu</a>
 		
   </p><p class="article-time">
-    <time datetime="2018-12-04T16:03:22.000Z" itemprop="datePublished"> 发表于 2018-12-05</time>
+    <time datetime="2018-12-05T16:00:00.000Z" itemprop="datePublished"> 发表于 2018-12-06</time>
     
   </p>
 </header>
@@ -97,110 +96,60 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#作用："><span class="toc-number">1.</span> <span class="toc-text">作用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">2.</span> <span class="toc-text">参考：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码："><span class="toc-number">3.</span> <span class="toc-text">代码：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示："><span class="toc-number">3.1.</span> <span class="toc-text">主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可："><span class="toc-number">4.</span> <span class="toc-text">其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#居中所使用的貌似会使表格失效，因此去掉了该标签"><span class="toc-number">5.</span> <span class="toc-text">! 居中所使用的貌似会使表格失效，因此去掉了该标签</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考：python实现二叉树的遍历-csdn"><span class="toc-number">1.</span> <span class="toc-text">参考：python实现二叉树的遍历-csdn</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#数据定义"><span class="toc-number"></span> <span class="toc-text">数据定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归遍历（前序、中序、后序）"><span class="toc-number"></span> <span class="toc-text">递归遍历（前序、中序、后序）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单元测试"><span class="toc-number"></span> <span class="toc-text">单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正确的遍历顺序为："><span class="toc-number"></span> <span class="toc-text">正确的遍历顺序为：</span></a>
 		
-		</div>
+		</li></div>
 		
-		<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h3><p>使用python生成日报中的日历</p>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ul>
-<li><a href="https://blog.csdn.net/jlshix/article/details/46970563" target="_blank" rel="noopener">python实现输出日历-csdn</a></li>
+		<h4 id="参考：python实现二叉树的遍历-csdn"><a href="#参考：python实现二叉树的遍历-csdn" class="headerlink" title="参考：python实现二叉树的遍历-csdn"></a>参考：<a href="https://www.cnblogs.com/freeman818/p/7252041.html" target="_blank" rel="noopener">python实现二叉树的遍历-csdn</a></h4><h3 id="数据定义"><a href="#数据定义" class="headerlink" title="数据定义"></a>数据定义</h3><pre><code>class Node(object):
+    def __init__(self, data, l_child=None, r_child=None):
+        self.data = data
+        self.left_child = l_child
+        self.right_child = r_child
+</code></pre><h3 id="递归遍历（前序、中序、后序）"><a href="#递归遍历（前序、中序、后序）" class="headerlink" title="递归遍历（前序、中序、后序）"></a>递归遍历（前序、中序、后序）</h3><pre><code>def pre_(root):
+    if root == None:
+        return
+    print(root.data)
+    pre_(root.left_child)
+    pre_(root.right_child)
+
+def mid_(root):
+    if root == None:
+        return
+    mid_(root.left_child)
+    print(root.data)
+    mid_(root.right_child)
+
+def after_(root):
+    if root == None:
+        return
+    after_(root.left_child)
+    after_(root.right_child)
+    print(root.data)
+</code></pre><h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><pre><code>if __name__ == &apos;__main__&apos;:
+    test_tree = Node(&apos;A&apos;, 
+                    Node(&apos;B&apos;, 
+                        Node(&apos;D&apos;),
+                        None), 
+                    Node(&apos;C&apos;, 
+                        Node(&apos;E&apos;, 
+                            None, 
+                            Node(&apos;G&apos;)), 
+                        Node(&apos;F&apos;, 
+                            Node(&apos;H&apos;), 
+                            Node(&apos;I&apos;))))
+
+    pre_(test_tree)
+    print(&apos;------------------&apos;)
+    mid_(test_tree)
+    print(&apos;------------------&apos;)
+    after_(test_tree)
+</code></pre><p><strong>其中树的结构为：</strong><br><img src="/2018/12/06/tree/1.jpg" alt="image"></p>
+<h3 id="正确的遍历顺序为："><a href="#正确的遍历顺序为：" class="headerlink" title="正确的遍历顺序为："></a>正确的遍历顺序为：</h3><ul>
+<li>前序：A B D C E G F H I </li>
+<li>中序：D B A E G C H F I </li>
+<li>后序：D B G E H I F C A</li>
 </ul>
-<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><pre><code># coding=utf-8
-__author__ = &apos;Leonard&apos;
-
-
-def is_leap_year(year):
-    # 判断是否为闰年
-    if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
-        return True
-    else:
-        return False
-
-
-def get_num_of_days_in_month(year, month):
-    # 给定年月返回月份的天数
-    if month in (1, 3, 5, 7, 8, 10, 12):
-        return 31
-    elif month in (4, 6, 9, 11):
-        return 30
-    elif is_leap_year(year):
-        return 29
-    else:
-        return 28
-
-
-def get_total_num_of_day(year, month):
-    # 自1800年1月1日以来过了多少天
-    days = 0
-    for y in range(1800, year):
-        if is_leap_year(y):
-            days += 366
-        else:
-            days += 365
-
-    for m in range(1, month):
-        days += get_num_of_days_in_month(year, m)
-
-    return days
-
-
-def get_start_day(year, month):
-    # 返回当月1日是星期几，由1800.01.01是星期三推算
-    return 3 + get_total_num_of_day(year, month) % 7
-
-
-# 月份与名称对应的字典
-month_dict = {1: &apos;January&apos;, 2: &apos;February&apos;, 3: &apos;March&apos;, 4: &apos;April&apos;, 5: &apos;May&apos;, 6: &apos;June&apos;,
-              7: &apos;July&apos;, 8: &apos;August&apos;, 9: &apos;September&apos;, 10: &apos;October&apos;, 11: &apos;November&apos;, 12: &apos;December&apos;}
-
-
-def get_month_name(month):
-    # 返回当月的名称
-    return month_dict[month]
-
-
-def print_month_title(year, month):
-    # 打印日历的首部
-
-    cal.write(&apos;         &apos; + str(get_month_name(month)) +  &apos;   &apos; + str(year) + &apos;          \n&apos;)
-    cal.write(&apos;Sun | Mon | Tue  | Wed | Thu | Fri | Sat \n&apos;)
-    cal.write(&apos;---| ---| ---| ---| ---| ---| ---|\n&apos;)
-
-
-def print_month_body(year, month):
-    &apos;&apos;&apos;
-    打印日历正文
-    格式说明：空两个空格，每天的长度为5
-    需要注意的是print加逗号会多一个空格
-    &apos;&apos;&apos;
-    i = get_start_day(year, month)
-    if i != 7:
-        # cal.write(&apos; &apos;) # 打印行首的两个空格
-        cal.write(&apos;  |&apos; * (i %7))   # 从星期几开始则空5*几个空格
-    for j in range(1, get_num_of_days_in_month(year, month)+1):
-        cal.write(&apos; [&apos; + str(j) + &apos;](#&apos; + str(month) + str(j) + &apos;) |&apos;)# 宽度控制，4+1=5
-        i += 1
-        if i % 7 == 0:  # i用于计数和换行
-            cal.write(&apos;\n&apos;)   # 每换行一次行首继续空格
-
-
-
-#   主函数部分
-# year = int(raw_input(&quot;Please input target year:&quot;))
-# month = int(raw_input(&quot;Please input target month:&quot;))
-year = 2018
-month = 12
-cal = open(str(year) + &apos;-&apos; + str(month) + &apos;-日历markdown版.txt&apos;,&apos;w&apos;)
-print_month_title(year, month)
-print_month_body(year, month)
-cal.close()
-</code></pre><hr>
-<h4 id="主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示："><a href="#主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示：" class="headerlink" title="主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示："></a>主要是修改了输出部分的代码，python实现日历主要是感谢<a href="https://blog.csdn.net/jlshix/article/details/46970563" target="_blank" rel="noopener">原博主</a>，在本地生成的markdown文件内容如下所示：</h4><p><img src="/2018/12/05/how-to-use-python-to-build-markdown-calc/1.png" alt="image"></p>
-<p>效果：</p>
-<p><img src="/2018/12/05/how-to-use-python-to-build-markdown-calc/2.JPG" alt="image"></p>
-<h3 id="其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可："><a href="#其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可：" class="headerlink" title="其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可："></a>其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可：</h3><pre><code>&lt;span id=&quot;122&quot;&gt;12-2&lt;/span&gt;
-</code></pre><p>此处id即是日历中的#号后面的id</p>
-<h3 id="居中所使用的貌似会使表格失效，因此去掉了该标签"><a href="#居中所使用的貌似会使表格失效，因此去掉了该标签" class="headerlink" title="! 居中所使用的貌似会使表格失效，因此去掉了该标签"></a>! 居中所使用的<center>貌似会使表格失效，因此去掉了该标签</center></h3>  
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -208,7 +157,7 @@ cal.close()
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/随笔/">随笔</a><a href="/tags/python/">python</a>
+  <span></span> <a href="/tags/python/">python</a><a href="/tags/Algorithm/">Algorithm</a>
   </div>
 
 </div>
@@ -222,17 +171,10 @@ cal.close()
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2018/12/06/cnn/" title="textCNN 学习笔记">
-  <span>
-  textCNN 学习笔记</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/11/29/日记/" title="(置顶)日记&amp;日报">
- <span>(置顶)日记&amp;日报
+<a href="/2018/12/06/cnn/" title="textCNN 学习笔记">
+ <span>textCNN 学习笔记
 </span>
 </a>
 </div>
