@@ -4,28 +4,29 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>使用python生成markdown格式的日历 | Blog of YQ</title>
+    <title>TF入门——使用线性回归进行实验 | Blog of YQ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Yuanqing Zhu">
     
 
     
-    <meta name="description" content="使用python生成某年某月的月历，输出成markdown格式">
-<meta name="keywords" content="随笔,python">
+    <meta name="description" content="TF入门——使用线性回归进行训练">
+<meta name="keywords" content="-tensorflow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用python生成markdown格式的日历">
-<meta property="og:url" content="http://yoursite.com/2018/12/05/how-to-use-python-to-build-markdown-calc/index.html">
+<meta property="og:title" content="TF入门——使用线性回归进行实验">
+<meta property="og:url" content="http://yoursite.com/2018/12/10/learning-tensorflow-linear-regression/index.html">
 <meta property="og:site_name" content="Blog of YQ">
-<meta property="og:description" content="使用python生成某年某月的月历，输出成markdown格式">
+<meta property="og:description" content="TF入门——使用线性回归进行训练">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/12/05/how-to-use-python-to-build-markdown-calc/1.png">
-<meta property="og:image" content="http://yoursite.com/2018/12/05/how-to-use-python-to-build-markdown-calc/2.JPG">
-<meta property="og:updated_time" content="2018-12-05T01:47:16.760Z">
+<meta property="og:image" content="http://yoursite.com/2018/12/10/learning-tensorflow-linear-regression/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/10/learning-tensorflow-linear-regression/2.JPG">
+<meta property="og:image" content="http://yoursite.com/2018/12/10/learning-tensorflow-linear-regression/3.png">
+<meta property="og:updated_time" content="2018-12-10T14:12:06.492Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用python生成markdown格式的日历">
-<meta name="twitter:description" content="使用python生成某年某月的月历，输出成markdown格式">
-<meta name="twitter:image" content="http://yoursite.com/2018/12/05/how-to-use-python-to-build-markdown-calc/1.png">
+<meta name="twitter:title" content="TF入门——使用线性回归进行实验">
+<meta name="twitter:description" content="TF入门——使用线性回归进行训练">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/10/learning-tensorflow-linear-regression/1.png">
 
     
     <link rel="alternative" href="atom.xml" title="Blog of YQ" type="application/atom+xml">
@@ -81,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/12/05/how-to-use-python-to-build-markdown-calc/" title="使用python生成markdown格式的日历" itemprop="url">使用python生成markdown格式的日历</a>
+      <a href="/2018/12/10/learning-tensorflow-linear-regression/" title="TF入门——使用线性回归进行实验" itemprop="url">TF入门——使用线性回归进行实验</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Yuanqing Zhu" target="_blank" itemprop="author">Yuanqing Zhu</a>
 		
   </p><p class="article-time">
-    <time datetime="2018-12-04T16:03:22.000Z" itemprop="datePublished"> 发表于 2018-12-05</time>
+    <time datetime="2018-12-10T13:39:33.000Z" itemprop="datePublished"> 发表于 2018-12-10</time>
     
   </p>
 </header>
@@ -97,110 +98,61 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#作用："><span class="toc-number">1.</span> <span class="toc-text">作用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">2.</span> <span class="toc-text">参考：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码："><span class="toc-number">3.</span> <span class="toc-text">代码：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示："><span class="toc-number">3.1.</span> <span class="toc-text">主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可："><span class="toc-number">4.</span> <span class="toc-text">其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#居中所使用的貌似会使表格失效，因此去掉了该标签"><span class="toc-number">5.</span> <span class="toc-text">! 居中所使用的貌似会使表格失效，因此去掉了该标签</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出"><span class="toc-number">3.</span> <span class="toc-text">输出</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h3><p>使用python生成日报中的日历</p>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ul>
-<li><a href="https://blog.csdn.net/jlshix/article/details/46970563" target="_blank" rel="noopener">python实现输出日历-csdn</a></li>
-</ul>
-<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><pre><code># coding=utf-8
-__author__ = &apos;Leonard&apos;
+		<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先，我们通过random构建一部分数据，这里随机了1000个数据构建一个一维数组作为输入，y_true随机取0或者1。然后使用sklearn的<a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html" target="_blank" rel="noopener">train_test_split</a>函数进行划分，在本例子中使用0.1的比例进行划分。划分后的数据shape如下图所示：<br><img src="/2018/12/10/learning-tensorflow-linear-regression/1.png" alt="image"><br>然后我们定义了进行预测的公式（y = w * x + b)，使用<a href="https://baike.baidu.com/item/%E5%9D%87%E6%96%B9%E8%AF%AF%E5%B7%AE" target="_blank" rel="noopener">均方误差</a>作为损失函数，使用梯度下降对loss进行优化学习。然后定义epoch数，因为数据量比较小，所以这里也没有分batch进行学习。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code># encoding: utf-8
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
 
+# 一些定义
+number_of_data = 1000   # 数据总数
+test_size = 0.1 # 测试集占比0.1
 
-def is_leap_year(year):
-    # 判断是否为闰年
-    if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
-        return True
-    else:
-        return False
+# 准备数据，划分训练集和测试集
+X_ = np.random.rand(number_of_data)
+y_ = np.array([np.random.choice([0,1]) for _ in range(number_of_data)])
+X_train, X_test, y_train, y_test = train_test_split(X_, y_,test_size=test_size)
 
+X = tf.placeholder(tf.float32)
+Y = tf.placeholder(tf.float32)
 
-def get_num_of_days_in_month(year, month):
-    # 给定年月返回月份的天数
-    if month in (1, 3, 5, 7, 8, 10, 12):
-        return 31
-    elif month in (4, 6, 9, 11):
-        return 30
-    elif is_leap_year(year):
-        return 29
-    else:
-        return 28
+W = tf.Variable(np.random.randn(), name=&quot;weight&quot;)
+b = tf.Variable(np.random.rand(), name=&quot;bias&quot;)
 
+# 1. 定义pred的函数
+pred = tf.add(tf.multiply(W, X), b)
+# 2. 定义loss
+train_size = X_train.shape[0]   # 即训练集数据的个数
+loss = tf.reduce_sum(tf.pow((pred - Y), 2)) / (2 * train_size)
 
-def get_total_num_of_day(year, month):
-    # 自1800年1月1日以来过了多少天
-    days = 0
-    for y in range(1800, year):
-        if is_leap_year(y):
-            days += 366
-        else:
-            days += 365
+# 3. 定义优化器，这里使用梯度下降
+learning_rate = 0.01    # 定义学习率
+optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
 
-    for m in range(1, month):
-        days += get_num_of_days_in_month(year, m)
+# 初始化以上的内容
+init = tf.global_variables_initializer()
 
-    return days
+# 创建图
+epoch_num = 1000    # 定义epoch
+with tf.Session() as sess:
+    sess.run(init)
+    for epoch in range(epoch_num):
+        for (x, y) in zip(X_train, y_train):    # 这里没有使用mini batch学习
+            sess.run(optimizer, feed_dict={X: x, Y: y})
 
-
-def get_start_day(year, month):
-    # 返回当月1日是星期几，由1800.01.01是星期三推算
-    return 3 + get_total_num_of_day(year, month) % 7
-
-
-# 月份与名称对应的字典
-month_dict = {1: &apos;January&apos;, 2: &apos;February&apos;, 3: &apos;March&apos;, 4: &apos;April&apos;, 5: &apos;May&apos;, 6: &apos;June&apos;,
-              7: &apos;July&apos;, 8: &apos;August&apos;, 9: &apos;September&apos;, 10: &apos;October&apos;, 11: &apos;November&apos;, 12: &apos;December&apos;}
-
-
-def get_month_name(month):
-    # 返回当月的名称
-    return month_dict[month]
-
-
-def print_month_title(year, month):
-    # 打印日历的首部
-
-    cal.write(&apos;         &apos; + str(get_month_name(month)) +  &apos;   &apos; + str(year) + &apos;          \n&apos;)
-    cal.write(&apos;Sun | Mon | Tue  | Wed | Thu | Fri | Sat \n&apos;)
-    cal.write(&apos;---| ---| ---| ---| ---| ---| ---|\n&apos;)
-
-
-def print_month_body(year, month):
-    &apos;&apos;&apos;
-    打印日历正文
-    格式说明：空两个空格，每天的长度为5
-    需要注意的是print加逗号会多一个空格
-    &apos;&apos;&apos;
-    i = get_start_day(year, month)
-    if i != 7:
-        # cal.write(&apos; &apos;) # 打印行首的两个空格
-        cal.write(&apos;  |&apos; * (i %7))   # 从星期几开始则空5*几个空格
-    for j in range(1, get_num_of_days_in_month(year, month)+1):
-        cal.write(&apos; [&apos; + str(j) + &apos;](#&apos; + str(month) + str(j) + &apos;) |&apos;)# 宽度控制，4+1=5
-        i += 1
-        if i % 7 == 0:  # i用于计数和换行
-            cal.write(&apos;\n&apos;)   # 每换行一次行首继续空格
-
-
-
-#   主函数部分
-# year = int(raw_input(&quot;Please input target year:&quot;))
-# month = int(raw_input(&quot;Please input target month:&quot;))
-year = 2018
-month = 12
-cal = open(str(year) + &apos;-&apos; + str(month) + &apos;-日历markdown版.txt&apos;,&apos;w&apos;)
-print_month_title(year, month)
-print_month_body(year, month)
-cal.close()
-</code></pre><hr>
-<h4 id="主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示："><a href="#主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示：" class="headerlink" title="主要是修改了输出部分的代码，python实现日历主要是感谢原博主，在本地生成的markdown文件内容如下所示："></a>主要是修改了输出部分的代码，python实现日历主要是感谢<a href="https://blog.csdn.net/jlshix/article/details/46970563" target="_blank" rel="noopener">原博主</a>，在本地生成的markdown文件内容如下所示：</h4><p><img src="/2018/12/05/how-to-use-python-to-build-markdown-calc/1.png" alt="image"></p>
-<p>效果：</p>
-<p><img src="/2018/12/05/how-to-use-python-to-build-markdown-calc/2.JPG" alt="image"></p>
-<h3 id="其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可："><a href="#其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可：" class="headerlink" title="其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可："></a>其中带有目录的链接，方便在文中快速定位，只需要按照如下方式定义页内链接即可：</h3><pre><code>&lt;span id=&quot;122&quot;&gt;12-2&lt;/span&gt;
-</code></pre><p>此处id即是日历中的#号后面的id</p>
-<h3 id="居中所使用的貌似会使表格失效，因此去掉了该标签"><a href="#居中所使用的貌似会使表格失效，因此去掉了该标签" class="headerlink" title="! 居中所使用的貌似会使表格失效，因此去掉了该标签"></a>! 居中所使用的<center>貌似会使表格失效，因此去掉了该标签</center></h3>  
+        if epoch % 50 == 0:
+            dev_loss = sess.run(loss, feed_dict={X: X_train, Y: y_train})
+            print(&quot;Epoch: &quot;, epoch, end=&apos;&apos;)
+            print(&quot; Loss: &quot;, dev_loss, end=&apos;&apos;)
+            print(&quot; W: &quot;, sess.run(W), &quot; b: &quot;, sess.run(b))
+</code></pre><h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p><strong>运行时输出</strong><br><img src="/2018/12/10/learning-tensorflow-linear-regression/2.JPG" alt="image"></p>
+<p><strong>loss变化</strong><br><img src="/2018/12/10/learning-tensorflow-linear-regression/3.png" alt="image"><br>由于这组数据没有什么实际的意义，因此没啥可解释的，可以看到loss很快下降并且很快就趋于稳定</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -208,7 +160,7 @@ cal.close()
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/随笔/">随笔</a><a href="/tags/python/">python</a>
+  <span></span> <a href="/tags/tensorflow/">-tensorflow</a>
   </div>
 
 </div>
@@ -222,17 +174,10 @@ cal.close()
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2018/12/06/tree/" title="使用python遍历二叉树">
-  <span>
-  使用python遍历二叉树</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/11/29/日记/" title="(置顶)日记&amp;日报">
- <span>(置顶)日记&amp;日报
+<a href="/2018/12/06/cnn/" title="textCNN 学习笔记">
+ <span>textCNN 学习笔记
 </span>
 </a>
 </div>
