@@ -4,25 +4,28 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>Java学习笔记 | Blog of YQ</title>
+    <title>算法入门——插入排序 | Blog of YQ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Yuanqing Zhu">
     
 
     
-    <meta name="description" content="java读书笔记">
-<meta name="keywords" content="笔记,Java">
+    <meta name="description" content="用python实现直接插入排序、折半插入排序、希尔排序">
+<meta name="keywords" content="Algorithm,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java学习笔记">
-<meta property="og:url" content="http://yoursite.com/2017/08/31/Java学习笔记/index.html">
+<meta property="og:title" content="算法入门——插入排序">
+<meta property="og:url" content="http://yoursite.com/2018/12/13/algorithm-learning-insert-sort/index.html">
 <meta property="og:site_name" content="Blog of YQ">
-<meta property="og:description" content="java读书笔记">
+<meta property="og:description" content="用python实现直接插入排序、折半插入排序、希尔排序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T01:47:29.193Z">
+<meta property="og:image" content="http://yoursite.com/2018/12/13/algorithm-learning-insert-sort/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/12/13/algorithm-learning-insert-sort/2.jpg">
+<meta property="og:updated_time" content="2018-12-13T15:33:28.088Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java学习笔记">
-<meta name="twitter:description" content="java读书笔记">
+<meta name="twitter:title" content="算法入门——插入排序">
+<meta name="twitter:description" content="用python实现直接插入排序、折半插入排序、希尔排序">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/13/algorithm-learning-insert-sort/1.jpg">
 
     
     <link rel="alternative" href="atom.xml" title="Blog of YQ" type="application/atom+xml">
@@ -78,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/08/31/Java学习笔记/" title="Java学习笔记" itemprop="url">Java学习笔记</a>
+      <a href="/2018/12/13/algorithm-learning-insert-sort/" title="算法入门——插入排序" itemprop="url">算法入门——插入排序</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Yuanqing Zhu" target="_blank" itemprop="author">Yuanqing Zhu</a>
 		
   </p><p class="article-time">
-    <time datetime="2017-08-30T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-08-31</time>
+    <time datetime="2018-12-13T15:07:49.000Z" itemprop="datePublished"> 发表于 2018-12-13</time>
     
   </p>
 </header>
@@ -94,69 +97,74 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#参考图书：21天学通Java（第六版），人民邮电出版社，-美-Rogers-Cadenhead"><span class="toc-number">1.</span> <span class="toc-text">参考图书：21天学通Java（第六版），人民邮电出版社，[美]Rogers Cadenhead</span></a></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#第一章"><span class="toc-number"></span> <span class="toc-text">第一章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二章"><span class="toc-number"></span> <span class="toc-text">第二章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三章"><span class="toc-number"></span> <span class="toc-text">第三章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四章"><span class="toc-number"></span> <span class="toc-text">第四章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第五章"><span class="toc-number"></span> <span class="toc-text">第五章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第六章"><span class="toc-number"></span> <span class="toc-text">第六章</span></a>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#直接插入排序"><span class="toc-number">1.</span> <span class="toc-text">直接插入排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#折半插入排序"><span class="toc-number">2.</span> <span class="toc-text">折半插入排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#希尔排序"><span class="toc-number">3.</span> <span class="toc-text">希尔排序</span></a></li></ol>
 		
-		</li></div>
+		</div>
 		
-		<hr>
-<h5 id="参考图书：21天学通Java（第六版），人民邮电出版社，-美-Rogers-Cadenhead"><a href="#参考图书：21天学通Java（第六版），人民邮电出版社，-美-Rogers-Cadenhead" class="headerlink" title="参考图书：21天学通Java（第六版），人民邮电出版社，[美]Rogers Cadenhead"></a>参考图书：21天学通Java（第六版），人民邮电出版社，[美]Rogers Cadenhead</h5><hr>
-<h4 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h4><ul>
-<li>类变量（class variable）：定义类的属性，不同的实例公用这个属性</li>
-<li>类方法（class method）：适用于类本身<p></p></li>
-<li>三个重要概念：继承、借口、包</li>
-<li>继承其他类的叫子类，被继承的叫超类</li>
-<li>在子类中创建一个防止调用超类中定义的方法。为此，方法的名称、返回值和参数必须与超类方法相同，这称谓<strong>覆盖</strong></li>
-<li>Java单继承：仅有一个超类</li>
-</ul>
-<h4 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h4><ul>
-<li>变量命名法：小驼峰</li>
-<li>数据类型（基本）：<ul>
-<li>存储整数：byte、short、int、long</li>
-<li>浮点数：float、double</li>
-<li>char、boolean</li>
-</ul>
-</li>
-<li>定义常量： 关键字：<strong>final</strong>。如：final float PI = 3.14；</li>
-<li>输出：System.out.println(“str1” + “str2”);  // 在输出字符串后面回车，区别于print</li>
-<li>字符串对象是Java中的真正对象</li>
-<li>逻辑运算符：&amp; 与 &amp;&amp;。如果用&amp; ，不论两边式子真假，两边都会计算；如果是&amp;&amp;，lazy模式，若左边为true，右边则不会计算。</li>
-</ul>
-<h4 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h4><ul>
-<li>参数数目和类型是区分构造函数的唯一途径</li>
-<li>类变量：关键字：<strong>static</strong>，修改它会改变所有的实例。</li>
-<li>System.out.format(“Test:$，d%n”, data）；  // %，d是十进制数，%n是回车符</li>
-<li>System位于java.lang包中</li>
-<li>System.out 是一个类型，他存储了PrintSteam的一个实例</li>
-<li>引用是一个地址，指明了对象的变量和方法的存储位置</li>
-<li>将对象赋值给变量或者作为参数传递给方法的时候，使用的仅仅是对象的引用。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Interger dataCount = new Integer(10);</span><br><span class="line">int newCount = dataCount.intValue();</span><br><span class="line">// 这里，dataCount是个Integer对象</span><br></pre></td></tr></table></figure>
+		<h2 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h2><pre><code>def insert_sort(lst):
+    &quot;&quot;&quot;
+    插入排序：
+    对list中从左到右每个元素，找到左侧它最合适的位置。
+    也就是说默认第1个元素是正确位置，第二个元素跟第一个作比较，以此类推
+    &quot;&quot;&quot;
+    # 从第一个元素开始处理
+    for idx in range(len(lst)):
+
+        # 这一步是为了后续挪位置，所以插入排序的思想是每次处理一个数据，找到最合适的位置
+        tmp = lst[idx]
+
+        j = idx
+        # 这个边界条件很重要，每次考虑候选和它前面的数值作比较
+        while j &gt; 0 and tmp &lt; lst[j - 1]:
+            lst[j] = lst[j - 1]
+            j -= 1
+        lst[j] = tmp
+    return lst
+</code></pre><p><img src="/2018/12/13/algorithm-learning-insert-sort/1.jpg" alt="image"><br><strong>图中的部分是一次for的内容</strong></p>
+<hr>
+<h2 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h2><pre><code>def bin_sort(lst):
+    &quot;&quot;&quot;
+    折半插入排序
+    &quot;&quot;&quot;
+    for idx in range(len(lst)):
+        if idx == 0:
+            continue
+        i = 0
+        j = idx - 1
+        tmp = lst[idx]
+        while i &lt;= j:
+            mid = int((i + j) / 2)
+            if tmp &gt;= lst[mid]:
+                i = mid + 1
+            elif tmp &lt; lst[mid]:
+                j = mid - 1
+
+        for tmp_idx in range(idx, i, -1):
+        # for tmp_idx in range(i, idx):    # 这句就是错的
+            lst[tmp_idx] = lst[tmp_idx - 1]
+        lst[i] = tmp
+    return lst
+</code></pre><p><img src="/2018/12/13/algorithm-learning-insert-sort/2.jpg" alt="image"><br><strong>图中的部分是一次for的内容</strong></p>
+<hr>
+<h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><pre><code>def shell_sort(lst):
+    &quot;&quot;&quot;
+    希尔排序
+    &quot;&quot;&quot;
+    gap = len(lst)
+    while gap &gt;= 1:
+        gap = int(gap / 2)
+        for j in range(gap, len(lst)):
+            i = j
+            while i - gap &gt;= 0: # 注意边界条件
+                if lst[i] &lt; lst[i - gap]:
+                    lst[i], lst[i - gap] = lst[i - gap], lst[i]
+                else:
+                    break
+    return lst
+</code></pre><p>参考：</p>
 <ul>
-<li>若判断对象所属于的类：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. String Name = key.getClass().getName();</span><br><span class="line">2. 用instanceof</span><br><span class="line">boolean check2 = pt instanceof String;</span><br></pre></td></tr></table></figure>
-<h4 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h4><ul>
-<li>块语句，即{}，但是直接用并不常见</li>
-<li>在块中声明的局部变量创建了作用域</li>
-<li>if，需要加括号</li>
-<li>三目运算：test?trueresult : falseresult;</li>
-<li>break &amp; continue 标号，标记要跳到哪里，P65</li>
-</ul>
-<h4 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h4><ul>
-<li><p>指定超类：关键字：<strong>extends</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Son extends Father &#123;</span><br><span class="line">pass</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>类变量：关键字：<strong>static</strong>；例子：static int num；</p>
-</li>
-<li>this：类似于python中的self</li>
-<li>P80 构造函数相关</li>
-<li>调用超类的构造函数：super.methodname(arguments)</li>
-</ul>
-<h4 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h4><ul>
-<li>static：创建类方法和类变量</li>
-<li>final：设置常量。常与static一起使用，例如：static final String TITLE = “sss”;</li>
-<li>final方法不能被子类覆盖。</li>
-<li>final类不能被继承。在final类中，所有的方法都是final的，无需再次限定。</li>
+<li><a href="https://blog.csdn.net/u014745194/article/details/72783357" target="_blank" rel="noopener">Python希尔排序算法-csdn</a></li>
+<li><a href="https://blog.csdn.net/MoreWindows/article/details/6668714" target="_blank" rel="noopener">白话经典算法系列之三 希尔排序的实现-csdn-c语言</a></li>
 </ul>
   
 	</div>
@@ -166,7 +174,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/笔记/">笔记</a><a href="/tags/Java/">Java</a>
+  <span></span> <a href="/tags/Algorithm/">Algorithm</a><a href="/tags/python/">python</a>
   </div>
 
 </div>
@@ -180,17 +188,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2018/04/24/组会分享/" title="组会分享">
-  <span>
-  组会分享</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/08/24/conll数据格式/" title="conll2011数据格式">
- <span>conll2011数据格式
+<a href="/2018/12/10/learning-tensorflow-linear-regression/" title="TF入门——使用线性回归进行实验">
+ <span>TF入门——使用线性回归进行实验
 </span>
 </a>
 </div>

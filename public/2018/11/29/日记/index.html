@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Blog of YQ">
 <meta property="og:description" content="用来记录每天的工作">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-10T14:19:51.534Z">
+<meta property="og:updated_time" content="2018-12-13T15:21:12.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(置顶)日记&amp;日报">
 <meta name="twitter:description" content="用来记录每天的工作">
@@ -372,6 +372,52 @@
 <li>准备面试相关的内容</li>
 <li>确定近期预算</li>
 </ul>
+<hr>
+<p><strong><span id="1211">12-11</span></strong></p>
+<ul>
+<li>去便利蜂面试，面试官人很nice，但是很遗憾结果还是不理想，发现了一些问题如下<ol>
+<li>基础算法不够牢固，一些排序复杂度的弄不是很清楚</li>
+<li>项目中算法类的不够，工程类的较多</li>
+<li>现场在纸上手写代码的效率不行，思路很受干扰，说明思路不够清晰，代码还是不够熟练</li>
+</ol>
+</li>
+<li>制定突破计划</li>
+</ul>
+<hr>
+<p><strong><span id="1212">12-12</span></strong></p>
+<ul>
+<li>着手撸排序和查找的基础算法</li>
+<li><a href="https://github.com/huggingface/neuralcoref" target="_blank" rel="noopener">新任务</a></li>
+</ul>
+<hr>
+<p><strong><span id="1213">12-13</span></strong></p>
+<ul>
+<li><p>spacy相关</p>
+<ul>
+<li><a href="https://juejin.im/post/5971a4b9f265da6c42353332" target="_blank" rel="noopener">https://juejin.im/post/5971a4b9f265da6c42353332</a></li>
+<li><a href="http://www.52nlp.cn/tag/spacy" target="_blank" rel="noopener">http://www.52nlp.cn/tag/spacy</a></li>
+<li>遇到一些问题，后来解决了，必须使用2.0.12版本的spacy</li>
+<li><p>示例代码：</p>
+<pre><code>In [1]: import spacy
+
+In [2]: spacy.__version__
+Out[2]: &apos;2.0.12&apos;
+
+In [3]: nlp = spacy.load(&apos;en_coref_sm&apos;)
+
+In [4]: doc = nlp(u&apos;My sister has a dog. She loves him&apos;)
+
+In [5]: doc._.has_coref
+Out[5]: True
+
+In [6]: doc._.coref_clusters
+Out[6]: [My sister: [My sister, She], a dog: [a dog, him]]
+</code></pre></li>
+</ul>
+</li>
+<li><p>搞定三个插入排序算法（<a href="https://junzx.github.io/2018/12/13/algorithm-learning-insert-sort/" target="_blank" rel="noopener">插入排序</a>）</p>
+</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -453,7 +499,7 @@
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>4</sup></a></li>
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -461,11 +507,11 @@
 			
 		
 			
-				<li><a href="/tags/随笔/" title="随笔">随笔<sup>2</sup></a></li>
+				<li><a href="/tags/Algorithm/" title="Algorithm">Algorithm<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/笔记/" title="笔记">笔记<sup>1</sup></a></li>
+				<li><a href="/tags/随笔/" title="随笔">随笔<sup>2</sup></a></li>
 			
 		
 			
@@ -477,11 +523,11 @@
 			
 		
 			
-				<li><a href="/tags/CoreNLP/" title="CoreNLP">CoreNLP<sup>1</sup></a></li>
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Algorithm/" title="Algorithm">Algorithm<sup>1</sup></a></li>
+				<li><a href="/tags/CoreNLP/" title="CoreNLP">CoreNLP<sup>1</sup></a></li>
 			
 		
 			
@@ -489,11 +535,11 @@
 			
 		
 			
-				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+				<li><a href="/tags/Tensorflow/" title="Tensorflow">Tensorflow<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Tensorflow/" title="Tensorflow">Tensorflow<sup>1</sup></a></li>
+				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
 			
 		
 		</ul>
