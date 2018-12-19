@@ -4,28 +4,28 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>算法入门——插入排序 | Blog of YQ</title>
+    <title>算法入门——选择排序 | Blog of YQ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Yuanqing Zhu">
     
 
     
-    <meta name="description" content="用python实现直接插入排序、折半插入排序、希尔排序">
+    <meta name="description" content="使用python实现直接选择排序、堆排序">
 <meta name="keywords" content="Algorithm,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法入门——插入排序">
-<meta property="og:url" content="http://yoursite.com/2018/12/13/algorithm-learning-insert-sort/index.html">
+<meta property="og:title" content="算法入门——选择排序">
+<meta property="og:url" content="http://yoursite.com/2018/12/18/algorithm-learning-select-sort/index.html">
 <meta property="og:site_name" content="Blog of YQ">
-<meta property="og:description" content="用python实现直接插入排序、折半插入排序、希尔排序">
+<meta property="og:description" content="使用python实现直接选择排序、堆排序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/12/13/algorithm-learning-insert-sort/1.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/12/13/algorithm-learning-insert-sort/2.jpg">
-<meta property="og:updated_time" content="2018-12-13T15:33:28.088Z">
+<meta property="og:image" content="http://yoursite.com/2018/12/18/algorithm-learning-select-sort/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/12/18/algorithm-learning-select-sort/2.jpg">
+<meta property="og:updated_time" content="2018-12-19T15:21:58.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法入门——插入排序">
-<meta name="twitter:description" content="用python实现直接插入排序、折半插入排序、希尔排序">
-<meta name="twitter:image" content="http://yoursite.com/2018/12/13/algorithm-learning-insert-sort/1.jpg">
+<meta name="twitter:title" content="算法入门——选择排序">
+<meta name="twitter:description" content="使用python实现直接选择排序、堆排序">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/18/algorithm-learning-select-sort/1.jpg">
 
     
     <link rel="alternative" href="atom.xml" title="Blog of YQ" type="application/atom+xml">
@@ -81,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/12/13/algorithm-learning-insert-sort/" title="算法入门——插入排序" itemprop="url">算法入门——插入排序</a>
+      <a href="/2018/12/18/algorithm-learning-select-sort/" title="算法入门——选择排序" itemprop="url">算法入门——选择排序</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Yuanqing Zhu" target="_blank" itemprop="author">Yuanqing Zhu</a>
 		
   </p><p class="article-time">
-    <time datetime="2018-12-13T15:07:49.000Z" itemprop="datePublished"> 发表于 2018-12-13</time>
+    <time datetime="2018-12-18T15:37:30.000Z" itemprop="datePublished"> 发表于 2018-12-18</time>
     
   </p>
 </header>
@@ -97,75 +97,58 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#直接插入排序"><span class="toc-number">1.</span> <span class="toc-text">直接插入排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#折半插入排序"><span class="toc-number">2.</span> <span class="toc-text">折半插入排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#希尔排序"><span class="toc-number">3.</span> <span class="toc-text">希尔排序</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#选择排序分类"><span class="toc-number">1.</span> <span class="toc-text">选择排序分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#直接选择排序"><span class="toc-number">2.</span> <span class="toc-text">直接选择排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆排序"><span class="toc-number">3.</span> <span class="toc-text">堆排序</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h2><pre><code>def insert_sort(lst):
-    &quot;&quot;&quot;
-    插入排序：
-    对list中从左到右每个元素，找到左侧它最合适的位置。
-    也就是说默认第1个元素是正确位置，第二个元素跟第一个作比较，以此类推
-    &quot;&quot;&quot;
-    # 从第一个元素开始处理
-    for idx in range(len(lst)):
-
-        # 这一步是为了后续挪位置，所以插入排序的思想是每次处理一个数据，找到最合适的位置
-        tmp = lst[idx]
-
-        j = idx
-        # 这个边界条件很重要，每次考虑候选和它前面的数值作比较
-        while j &gt; 0 and tmp &lt; lst[j - 1]:
-            lst[j] = lst[j - 1]
-            j -= 1
-        lst[j] = tmp
-    return lst
-</code></pre><p><img src="/2018/12/13/algorithm-learning-insert-sort/1.jpg" alt="image"><br><strong>图中的部分是一次for的内容</strong></p>
-<hr>
-<h2 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h2><pre><code>def bin_sort(lst):
-    &quot;&quot;&quot;
-    折半插入排序
-    &quot;&quot;&quot;
-    for idx in range(len(lst)):
-        if idx == 0:
-            continue
-        i = 0
-        j = idx - 1
-        tmp = lst[idx]
-        while i &lt;= j:
-            mid = int((i + j) / 2)
-            if tmp &gt;= lst[mid]:
-                i = mid + 1
-            elif tmp &lt; lst[mid]:
-                j = mid - 1
-
-        for tmp_idx in range(idx, i, -1):
-        # for tmp_idx in range(i, idx):    # 这句就是错的
-            lst[tmp_idx] = lst[tmp_idx - 1]
-        lst[i] = tmp
-    return lst
-</code></pre><p><img src="/2018/12/13/algorithm-learning-insert-sort/2.jpg" alt="image"><br><strong>图中的部分是一次for的内容</strong></p>
-<hr>
-<h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><pre><code>def shell_sort(lst):
-    &quot;&quot;&quot;
-    希尔排序
-    &quot;&quot;&quot;
-    gap = len(lst)
-    while gap &gt;= 1:
-        gap = int(gap / 2)
-        for j in range(gap, len(lst)):
-            i = j
-            while i - gap &gt;= 0: # 注意边界条件
-                if lst[i] &lt; lst[i - gap]:
-                    lst[i], lst[i - gap] = lst[i - gap], lst[i]
-                else:
-                    break
-    return lst
-</code></pre><p>参考：</p>
-<ul>
-<li><a href="https://blog.csdn.net/u014745194/article/details/72783357" target="_blank" rel="noopener">Python希尔排序算法-csdn</a></li>
-<li><a href="https://blog.csdn.net/MoreWindows/article/details/6668714" target="_blank" rel="noopener">白话经典算法系列之三 希尔排序的实现-csdn-c语言</a></li>
+		<h3 id="选择排序分类"><a href="#选择排序分类" class="headerlink" title="选择排序分类"></a>选择排序分类</h3><ul>
+<li>直接选择排序</li>
+<li>堆排序</li>
 </ul>
+<h3 id="直接选择排序"><a href="#直接选择排序" class="headerlink" title="直接选择排序"></a>直接选择排序</h3><pre><code># 大概是世界上最简单的直接选择排序了
+def select_sort(self, lst):
+    &quot;&quot;&quot;
+    直接选择排序
+    &quot;&quot;&quot;
+    for i in range(len(lst)):
+        for j in range(i + 1, len(lst)):
+            if lst[j] &lt; lst[i]:
+                lst[i], lst[j] = lst[j], lst[i]
+    return lst
+</code></pre><p><img src="/2018/12/18/algorithm-learning-select-sort/1.jpg" alt="image"></p>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><pre><code>def __adjust_heap(self, lst, idx, length):
+    lchild = 2 * idx + 1
+    rchild = 2 * idx + 2
+    max_idx = idx
+    if idx &lt; length:
+        if lchild &lt; length and lst[lchild] &gt; lst[max_idx]:
+            max_idx = lchild
+        if rchild &lt; length and lst[rchild] &gt; lst[max_idx]:
+            max_idx = rchild
+        if max_idx != idx:
+            lst[max_idx], lst[idx] = lst[idx], lst[max_idx]
+            self.__adjust_heap(lst, idx, length)
+
+def __build_heap(self, lst, length):
+    for idx in range(0, int(length / 2))[::-1]:
+        self.__adjust_heap(lst, idx, length)
+
+def heap_sort(self, lst):
+    length = len(lst)
+    self.__build_heap(lst, length)
+    for idx in range(0, length)[::-1]:
+        lst[0], lst[idx] = lst[idx], lst[0]
+        self.__adjust_heap(lst, 0, idx)# todo
+    return lst
+</code></pre><p>代码参考：</p>
+<ul>
+<li><a href="http://python.jobbole.com/82270/" target="_blank" rel="noopener">八大排序算法的 Python 实现</a></li>
+<li><a href="https://www.jianshu.com/p/d174f1862601" target="_blank" rel="noopener">堆排序的Python实现(附详细过程图和讲解)-简书</a></li>
+<li><a href="https://www.jianshu.com/p/21bef3fc3030" target="_blank" rel="noopener">最大堆（创建、删除、插入和堆排序）-简书</a></li>
+<li><a href="https://www.cnblogs.com/chengxiao/p/6129630.html" target="_blank" rel="noopener">图解排序算法(三)之堆排序-cnblogs</a></li>
+<li><a href="https://www.youtube.com/watch?v=MtQL_ll5KhQ" target="_blank" rel="noopener">一个油管上的视频讲解，强推</a></li>
+</ul>
+<p><img src="/2018/12/18/algorithm-learning-select-sort/2.jpg" alt="image"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -188,17 +171,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2018/12/18/algorithm-learning-select-sort/" title="算法入门——选择排序">
-  <span>
-  算法入门——选择排序</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/12/10/learning-tensorflow-linear-regression/" title="TF入门——使用线性回归进行实验">
- <span>TF入门——使用线性回归进行实验
+<a href="/2018/12/13/algorithm-learning-insert-sort/" title="算法入门——插入排序">
+ <span>算法入门——插入排序
 </span>
 </a>
 </div>

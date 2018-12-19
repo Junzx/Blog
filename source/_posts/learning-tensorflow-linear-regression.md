@@ -2,7 +2,7 @@
 title: TF入门——使用线性回归进行实验
 date: 2018-12-10 21:39:33
 tags:
-	-tensorflow
+	- Tensorflow
 description: TF入门——使用线性回归进行训练
 top: 1
 ---
