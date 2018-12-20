@@ -4,27 +4,27 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>使用python遍历二叉树 | Blog of YQ</title>
+    <title>算法入门——交换排序 | Blog of YQ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Yuanqing Zhu">
     
 
     
-    <meta name="description" content="递归遍历二叉树-python实验">
+    <meta name="description" content="使用python实现冒泡排序、快速排序">
 <meta name="keywords" content="Algorithm,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用python遍历二叉树">
-<meta property="og:url" content="http://yoursite.com/2018/12/06/tree/index.html">
+<meta property="og:title" content="算法入门——交换排序">
+<meta property="og:url" content="http://yoursite.com/2018/12/20/algorithm-learning-swap-sort/index.html">
 <meta property="og:site_name" content="Blog of YQ">
-<meta property="og:description" content="递归遍历二叉树-python实验">
+<meta property="og:description" content="使用python实现冒泡排序、快速排序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/12/06/tree/1.jpg">
-<meta property="og:updated_time" content="2018-12-05T16:23:07.023Z">
+<meta property="og:image" content="http://yoursite.com/2018/12/20/algorithm-learning-swap-sort/1.jpg">
+<meta property="og:updated_time" content="2018-12-20T13:17:18.439Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用python遍历二叉树">
-<meta name="twitter:description" content="递归遍历二叉树-python实验">
-<meta name="twitter:image" content="http://yoursite.com/2018/12/06/tree/1.jpg">
+<meta name="twitter:title" content="算法入门——交换排序">
+<meta name="twitter:description" content="使用python实现冒泡排序、快速排序">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/20/algorithm-learning-swap-sort/1.jpg">
 
     
     <link rel="alternative" href="atom.xml" title="Blog of YQ" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/12/06/tree/" title="使用python遍历二叉树" itemprop="url">使用python遍历二叉树</a>
+      <a href="/2018/12/20/algorithm-learning-swap-sort/" title="算法入门——交换排序" itemprop="url">算法入门——交换排序</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Yuanqing Zhu" target="_blank" itemprop="author">Yuanqing Zhu</a>
 		
   </p><p class="article-time">
-    <time datetime="2018-12-05T16:00:00.000Z" itemprop="datePublished"> 发表于 2018-12-06</time>
+    <time datetime="2018-12-20T08:55:44.000Z" itemprop="datePublished"> 发表于 2018-12-20</time>
     
   </p>
 </header>
@@ -96,59 +96,50 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考：python实现二叉树的遍历-csdn"><span class="toc-number">1.</span> <span class="toc-text">参考：python实现二叉树的遍历-csdn</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#数据定义"><span class="toc-number"></span> <span class="toc-text">数据定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归遍历（前序、中序、后序）"><span class="toc-number"></span> <span class="toc-text">递归遍历（前序、中序、后序）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单元测试"><span class="toc-number"></span> <span class="toc-text">单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正确的遍历顺序为："><span class="toc-number"></span> <span class="toc-text">正确的遍历顺序为：</span></a>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#交换排序"><span class="toc-number">1.</span> <span class="toc-text">交换排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冒泡排序"><span class="toc-number">2.</span> <span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快速排序"><span class="toc-number">3.</span> <span class="toc-text">快速排序</span></a></li></ol>
 		
-		</li></div>
+		</div>
 		
-		<h4 id="参考：python实现二叉树的遍历-csdn"><a href="#参考：python实现二叉树的遍历-csdn" class="headerlink" title="参考：python实现二叉树的遍历-csdn"></a>参考：<a href="https://www.cnblogs.com/freeman818/p/7252041.html" target="_blank" rel="noopener">python实现二叉树的遍历-csdn</a></h4><h3 id="数据定义"><a href="#数据定义" class="headerlink" title="数据定义"></a>数据定义</h3><pre><code>class Node(object):
-    def __init__(self, data, l_child=None, r_child=None):
-        self.data = data
-        self.left_child = l_child
-        self.right_child = r_child
-</code></pre><h3 id="递归遍历（前序、中序、后序）"><a href="#递归遍历（前序、中序、后序）" class="headerlink" title="递归遍历（前序、中序、后序）"></a>递归遍历（前序、中序、后序）</h3><pre><code>def pre_(root):
-    if root == None:
-        return
-    print(root.data)
-    pre_(root.left_child)
-    pre_(root.right_child)
-
-def mid_(root):
-    if root == None:
-        return
-    mid_(root.left_child)
-    print(root.data)
-    mid_(root.right_child)
-
-def after_(root):
-    if root == None:
-        return
-    after_(root.left_child)
-    after_(root.right_child)
-    print(root.data)
-</code></pre><h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><pre><code>if __name__ == &apos;__main__&apos;:
-    test_tree = Node(&apos;A&apos;, 
-                    Node(&apos;B&apos;, 
-                        Node(&apos;D&apos;),
-                        None), 
-                    Node(&apos;C&apos;, 
-                        Node(&apos;E&apos;, 
-                            None, 
-                            Node(&apos;G&apos;)), 
-                        Node(&apos;F&apos;, 
-                            Node(&apos;H&apos;), 
-                            Node(&apos;I&apos;))))
-
-    pre_(test_tree)
-    print(&apos;------------------&apos;)
-    mid_(test_tree)
-    print(&apos;------------------&apos;)
-    after_(test_tree)
-</code></pre><p><strong>其中树的结构为：</strong><br><img src="/2018/12/06/tree/1.jpg" alt="image"></p>
-<h3 id="正确的遍历顺序为："><a href="#正确的遍历顺序为：" class="headerlink" title="正确的遍历顺序为："></a>正确的遍历顺序为：</h3><ul>
-<li>前序：A B D C E G F H I </li>
-<li>中序：D B A E G C H F I </li>
-<li>后序：D B G E H I F C A</li>
+		<h3 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h3><ul>
+<li>冒泡排序</li>
+<li>快速排序</li>
 </ul>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><pre><code>def bubble_sort(self, lst):
+    for i in range(0, len(lst)):
+        for j in range(i, len(lst)):
+            if lst[i] &gt; lst[j]:
+                lst[i], lst[j] = lst[j], lst[i]
+    return lst
+</code></pre><hr>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><pre><code>def quick_sort(self, lst, low, high):
+    if low &lt; high:
+        mid = self.__Partitions(lst, low, high)
+        self.quick_sort(lst, low, mid - 1)
+        self.quick_sort(lst, mid + 1, high)
+    return lst
+
+def __Partitions(self, lst, low, high):
+    i = low
+    j = high
+    key = lst[low]
+    while i &lt; j:
+        while lst[i] &lt;= key:
+            i += 1
+        while lst[j] &gt; key:
+            j -= 1
+        if i &lt; j:
+            lst[i], lst[j] = lst[j], lst[i]
+
+    lst[low] = lst[j]
+    lst[j] = key
+    return j
+</code></pre><p><strong>代码参考</strong></p>
+<ul>
+<li><a href="https://www.cnblogs.com/kunpengv5/p/7833361.html" target="_blank" rel="noopener">快速排序 Python实现-cnblogs</a></li>
+<li><a href="https://blog.csdn.net/razor87/article/details/71155518" target="_blank" rel="noopener">快速排序的四种python实现-csdn</a></li>
+<li><a href="https://www.cnblogs.com/foreverking/articles/2234225.html" target="_blank" rel="noopener">快速排序-cnblogs</a></li>
+</ul>
+<p><img src="/2018/12/20/algorithm-learning-swap-sort/1.jpg" alt="image"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -172,16 +163,16 @@ def after_(root):
 <nav class="article-nav clearfix">
  
  <div class="prev">
- <a href="/2018/12/06/cnn/" title="textCNN 学习笔记">
+ <a href="/2018/12/20/algorithm-learning-merge-sort/" title="算法入门——归并排序">
   <span>
-  textCNN 学习笔记</span>
+  算法入门——归并排序</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2018/12/05/how-to-use-python-to-build-markdown-calc/" title="使用python生成markdown格式的日历">
- <span>使用python生成markdown格式的日历
+<a href="/2018/12/18/algorithm-learning-select-sort/" title="算法入门——选择排序">
+ <span>算法入门——选择排序
 </span>
 </a>
 </div>

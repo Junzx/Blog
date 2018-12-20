@@ -4,27 +4,25 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>使用python遍历二叉树 | Blog of YQ</title>
+    <title>算法入门——归并排序 | Blog of YQ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Yuanqing Zhu">
     
 
     
-    <meta name="description" content="递归遍历二叉树-python实验">
+    <meta name="description" content="使用python实现归并排序">
 <meta name="keywords" content="Algorithm,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用python遍历二叉树">
-<meta property="og:url" content="http://yoursite.com/2018/12/06/tree/index.html">
+<meta property="og:title" content="算法入门——归并排序">
+<meta property="og:url" content="http://yoursite.com/2018/12/20/algorithm-learning-merge-sort/index.html">
 <meta property="og:site_name" content="Blog of YQ">
-<meta property="og:description" content="递归遍历二叉树-python实验">
+<meta property="og:description" content="使用python实现归并排序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/12/06/tree/1.jpg">
-<meta property="og:updated_time" content="2018-12-05T16:23:07.023Z">
+<meta property="og:updated_time" content="2018-12-20T13:16:32.262Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用python遍历二叉树">
-<meta name="twitter:description" content="递归遍历二叉树-python实验">
-<meta name="twitter:image" content="http://yoursite.com/2018/12/06/tree/1.jpg">
+<meta name="twitter:title" content="算法入门——归并排序">
+<meta name="twitter:description" content="使用python实现归并排序">
 
     
     <link rel="alternative" href="atom.xml" title="Blog of YQ" type="application/atom+xml">
@@ -80,14 +78,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/12/06/tree/" title="使用python遍历二叉树" itemprop="url">使用python遍历二叉树</a>
+      <a href="/2018/12/20/algorithm-learning-merge-sort/" title="算法入门——归并排序" itemprop="url">算法入门——归并排序</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Yuanqing Zhu" target="_blank" itemprop="author">Yuanqing Zhu</a>
 		
   </p><p class="article-time">
-    <time datetime="2018-12-05T16:00:00.000Z" itemprop="datePublished"> 发表于 2018-12-06</time>
+    <time datetime="2018-12-20T13:04:55.000Z" itemprop="datePublished"> 发表于 2018-12-20</time>
     
   </p>
 </header>
@@ -96,59 +94,37 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考：python实现二叉树的遍历-csdn"><span class="toc-number">1.</span> <span class="toc-text">参考：python实现二叉树的遍历-csdn</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#数据定义"><span class="toc-number"></span> <span class="toc-text">数据定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归遍历（前序、中序、后序）"><span class="toc-number"></span> <span class="toc-text">递归遍历（前序、中序、后序）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单元测试"><span class="toc-number"></span> <span class="toc-text">单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正确的遍历顺序为："><span class="toc-number"></span> <span class="toc-text">正确的遍历顺序为：</span></a>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#归并排序"><span class="toc-number">1.</span> <span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li></ol>
 		
-		</li></div>
+		</div>
 		
-		<h4 id="参考：python实现二叉树的遍历-csdn"><a href="#参考：python实现二叉树的遍历-csdn" class="headerlink" title="参考：python实现二叉树的遍历-csdn"></a>参考：<a href="https://www.cnblogs.com/freeman818/p/7252041.html" target="_blank" rel="noopener">python实现二叉树的遍历-csdn</a></h4><h3 id="数据定义"><a href="#数据定义" class="headerlink" title="数据定义"></a>数据定义</h3><pre><code>class Node(object):
-    def __init__(self, data, l_child=None, r_child=None):
-        self.data = data
-        self.left_child = l_child
-        self.right_child = r_child
-</code></pre><h3 id="递归遍历（前序、中序、后序）"><a href="#递归遍历（前序、中序、后序）" class="headerlink" title="递归遍历（前序、中序、后序）"></a>递归遍历（前序、中序、后序）</h3><pre><code>def pre_(root):
-    if root == None:
-        return
-    print(root.data)
-    pre_(root.left_child)
-    pre_(root.right_child)
+		<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>归并排序分为自然归并和二路归并，其中二路归并是将数组划分为较均匀的，自然归并则不一定要等长。关于自然归并可以参考：<a href="https://blog.csdn.net/u014034497/article/details/45716423" target="_blank" rel="noopener">自然合并排序算法-csdn</a>和<a href="https://www.cnblogs.com/rixiang/p/6099755.html" target="_blank" rel="noopener">自然归并排序算法时间复杂度分析-cnblogs</a>。关于二路归并主要参考这一篇：<a href="https://blog.csdn.net/hqzxsc2006/article/details/47702127" target="_blank" rel="noopener">python二路归并排序实现法-csdn</a></p>
+<p>引用归并过程的描述如下：</p>
+<blockquote>
+<p>比较a[i]和a[j]的大小，若a[i]≤a[j]，则将第一个有序表中的元素a[i]复制到r[k]中，并令i和k分别加上1；否则将第二个有序表中的元素a[j]复制到r[k]中，并令j和k分别加上1，如此循环下去，直到其中一个有序表取完，然后再将另一个有序表中剩余的元素复制到r中从下标k到下标t的单元。归并排序的算法我们通常用递归实现，先把待排序区间[s,t]以中点二分，接着把左边子区间排序，再把右边子区间排序，最后把左区间和右区间用一次归并操作合并成有序的区间[s,t]。</p>
+</blockquote>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code>def merge_sort(self, lst):
+    if len(lst) &lt;= 1:
+        return lst
+    mid = int(len(lst) / 2)
+    left = self.merge_sort(lst[:mid])
+    right = self.merge_sort(lst[mid:])
+    return self.__merge(left=left, right=right)
 
-def mid_(root):
-    if root == None:
-        return
-    mid_(root.left_child)
-    print(root.data)
-    mid_(root.right_child)
-
-def after_(root):
-    if root == None:
-        return
-    after_(root.left_child)
-    after_(root.right_child)
-    print(root.data)
-</code></pre><h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><pre><code>if __name__ == &apos;__main__&apos;:
-    test_tree = Node(&apos;A&apos;, 
-                    Node(&apos;B&apos;, 
-                        Node(&apos;D&apos;),
-                        None), 
-                    Node(&apos;C&apos;, 
-                        Node(&apos;E&apos;, 
-                            None, 
-                            Node(&apos;G&apos;)), 
-                        Node(&apos;F&apos;, 
-                            Node(&apos;H&apos;), 
-                            Node(&apos;I&apos;))))
-
-    pre_(test_tree)
-    print(&apos;------------------&apos;)
-    mid_(test_tree)
-    print(&apos;------------------&apos;)
-    after_(test_tree)
-</code></pre><p><strong>其中树的结构为：</strong><br><img src="/2018/12/06/tree/1.jpg" alt="image"></p>
-<h3 id="正确的遍历顺序为："><a href="#正确的遍历顺序为：" class="headerlink" title="正确的遍历顺序为："></a>正确的遍历顺序为：</h3><ul>
-<li>前序：A B D C E G F H I </li>
-<li>中序：D B A E G C H F I </li>
-<li>后序：D B G E H I F C A</li>
-</ul>
+def __merge(self, left, right):
+    i, j = 0, 0
+    res = []
+    while i &lt; len(left) and j &lt; len(right):
+        if left[i] &lt; right[j]:
+            res.append(left[i])
+            i += 1
+        elif left[i] &gt; right[j]:
+            res.append(right[j])
+            j += 1
+    res.extend(left[i:])
+    res.extend(right[j:])
+    return res
+</code></pre><p>过程较为简单，主要是考虑每个元素作为初始的一个单位。然后两两一组，进行合并。合并的过程中，对于两个list，维护两个指针，分别挪动即可，而没必要先取最小的list长度进行遍历，使用while即可。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -171,17 +147,10 @@ def after_(root):
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2018/12/06/cnn/" title="textCNN 学习笔记">
-  <span>
-  textCNN 学习笔记</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/12/05/how-to-use-python-to-build-markdown-calc/" title="使用python生成markdown格式的日历">
- <span>使用python生成markdown格式的日历
+<a href="/2018/12/20/algorithm-learning-swap-sort/" title="算法入门——交换排序">
+ <span>算法入门——交换排序
 </span>
 </a>
 </div>

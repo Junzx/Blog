@@ -26,6 +26,8 @@ description: 使用python实现直接选择排序、堆排序
         return lst
 ![image](/algorithm-learning-select-sort/1.jpg)
 
+---
+
 ### 堆排序
 
 	def __adjust_heap(self, lst, idx, length):
