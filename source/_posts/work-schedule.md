@@ -57,8 +57,8 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
   |  |  |  |  |  | 1 |
  [2](#122) | 3 | [4](#124) | [5](#125) | [6](#126) | 7 | 8 |
  [9](#129) | [10](#1210) | [11](#1211) | [12](#1212) | [13](#1213) | 14| 15 |
- 16 | [17](#1217) | [18](#1218) | [19](#1219) | [20](#1220) | [21](#1221) | [22](#1222) |
- [23](#1223) | [24](#1224) | [25](#1225) | [26](#1226) | [27](#1227) | [28](#1228) | [29](#1229) |
+ 16 | [17](#1217) | [18](#1218) | [19](#1219) | [20](#1220) | [21](#1221) | 22 |
+ 23 | 24 | 25 | [26](#1226) | [27](#1227) | [28](#1228) | [29](#1229) |
  [30](#1230) | [31](#1231) |
 
 
@@ -258,12 +258,12 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 
 **积累**
 
-1. The choice of your career path is critical to your future. 职业道路的选择对你的未来至关重要。
-2. The government is responsible for the imporvement of the transportation and public utilities. （政府负责改善交通与公共措施） 
-3. The average income is high, though many people earn just a fraction of that average.（平均收入很高，但是很多人赚的只有平均工资的一小部分）
-4. world renowned（举世闻名）
-5. A substantial number of people supported the reform policy.（相当多的人支持这一改革政策）
-6. Increased competition makes it essential for the business to innovate.（日益激烈的竞争使得企业必须创新）
+1. The choice of your career path is **critical** to your future. 职业道路的选择对你的未来至关重要。
+2. The government is responsible for the imporvement of the transportation and public **utilities**. （政府负责改善交通与公共措施） 
+3. The average income is high, though many people earn just a **fraction** of that average.（平均收入很高，但是很多人赚的只有平均工资的一小部分）
+4. world **renowned**（举世闻名）
+5. A **substantial** number of people supported the reform policy.（相当多的人支持这一改革政策）
+6. Increased competition makes it **essential** for the business to innovate.（日益激烈的竞争使得企业必须创新）
 
 **今日成果**
 - 扇贝单词
@@ -274,3 +274,124 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 - 书上关于查找的部分
 - 毕设内容
 - 整理简历&看面经&问经验
+
+---
+**<span id="1221">12-21</span>**
+**积累**
+1. an area of **outstanding** natural beauty.(自然风景极美的地区/优秀的、突出的)
+
+**今日成果**
+- 扇贝单词
+- 排序总结
+- 过以前的论文，找到对毕设可能有用的
+
+![image](/work-schedule/1.JPG)
+
+| 算法 | 稳定性 | 时间复杂度 | 空间复杂度 | 
+| ---| ---| ---| ---| ---|
+| 直接插入排序 | 稳定 | O(n^2) | O(1) |
+| 折半插入排序 | 稳定 | O(n^2) | O(1) |
+| 希尔排序 | 不稳定 | O(n^2) | O(1) |
+| 冒泡排序 | 稳定 | O(n^2) | O(1) | 
+| 快速排序 | 不稳定 | O(n^2) | 最好：O(log2(n+1))，最坏: O(n)，平均： O(log2n) |
+| 简单选择排序 | 不稳定 | O(n^2) | O(1) |
+| 堆排序 | 不稳定 | O(nlog2n) | O(1) |
+| 归并排序 | 稳定 | O(nlog2n) | O(n) |
+| 基数排序 | 稳定 | O(d(n+r)) d趟分配和收集，一趟分配需要O(n)，一趟收集需要O(r) | O(r) r个队列 |
+
+---
+**<span id="1226">12-26</span>**
+
+**本周计划**
+- 基础算法
+- 整理GitHub代码以及收藏的内容
+- TF
+- Numpy——参考：[NumPy 中文文档](https://www.numpy.org.cn/)
+- 拓展阅读——[自动对话](http://www.ruiyan.me/pubs/tutorial-emnlp18.pdf)
+- BERT相关内容——[BERT相关论文、文章和代码资源汇总-知乎](https://zhuanlan.zhihu.com/p/50717786)
+- [端到端的机器学习项目](https://github.com/DeqianBai/Your-first-machine-learning-Project---End-to-End-in-Python)
+- 单词
+
+---
+**<span id="1227">12-27</span>**
+
+**今日安排**
+- [x] Numpy入门
+- [ ]单词
+- [x]整理GitHub stars
+
+**积累**
+- [创建一个数组](https://www.numpy.org.cn/article/basics/an_introduction_to_scientific_python_numpy.html#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84)
+- [多维数组切片](https://www.numpy.org.cn/article/basics/an_introduction_to_scientific_python_numpy.html#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87)
+
+
+	def quicksort(arr):
+	    if len(arr) <= 1:
+	        return arr
+	    pivot = arr[len(arr) // 2]
+	    left = [x for x in arr if x < pivot]
+	    middle = [x for x in arr if x == pivot]
+	    right = [x for x in arr if x > pivot]
+	    return quicksort(left) + middle + quicksort(right)
+	
+		print quicksort([3,6,8,10,1,2,1])
+
+- [NumPy数据分析练习](https://www.numpy.org.cn/article/advanced/numpy_exercises_for_data_analysis.html)
+- 写了一个小爬虫，用来爬去一些彩票数据，主要是学习beautifulsoup（不是认真的
+
+		from bs4 import BeautifulSoup
+		from time import sleep
+		import urllib
+		import gzip
+		import random
+		
+		def get_url_page(url_):
+		    rsp = urllib.request.urlopen(url_)
+		    tmp = gzip.decompress(rsp.read()).decode('gbk')
+		    return tmp
+		
+		def main():
+		    main_url = 'http://kaijiang.500.com/shtml/dlt/%s.shtml'
+		    dic_res = {}
+		    for idx in range(7001, 7005):
+		        idx = str(idx)
+		        if len(idx) == 4:
+		            idx = '0' + idx
+		        url_ = main_url % idx
+		        html_file = get_url_page(url_)
+		        soup = BeautifulSoup(html_file.encode('utf-8'), 'html.parser', from_encoding='utf-8')
+		        red_ball = [i.string for i in soup.find_all(name='li', attrs={'class':'ball_red'})]
+		        blue_ball = [i.string for i in soup.find_all(name='li', attrs={'class':'ball_blue'})]
+		        tmp_dic = {
+		            'red_ball': red_ball,
+		            'blue_ball': blue_ball
+		        }
+		        dic_res.setdefault(idx, tmp_dic)
+		        sleep(random.uniform(0.3, 3.0))
+		    return dic_res
+		
+		if __name__ == '__main__':
+		    res = main()
+		    import pickle
+		    with open('all_ball.data','wb') as hdl:
+		        pickle.dump(res, hdl)
+
+
+**明日计划**
+搞定CNN、RNN/LSTM
+
+---
+**<span id="1228">12-28</span>**
+
+- https://zhuanlan.zhihu.com/p/28196873
+- https://zhuanlan.zhihu.com/p/27087310
+- https://github.com/NELSONZHAO/zhihu/tree/master/anna_lstm
+- https://github.com/hzy46/Char-RNN-TensorFlow
+- https://gist.github.com/karpathy/d4dee566867f8291f086
+
+---
+**<span id="1229">12-29</span>**
+
+**做事需专注**
+
+- 同步了一篇论文笔记：https://junzx.github.io/2018/12/29/end2end-coreference-resolution/

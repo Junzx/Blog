@@ -7,21 +7,20 @@ Zyq，男，94年生人，现居北京。
 
 本科智能科学与技术专业毕业，硕士为软件工程智能方向。
 
-本科自己学习过推荐系统的皮毛——常识性的皮毛。
-
-研究生阶段主要研究方向为自然语言处理(指代消解)。
+本科自己学习过推荐系统的一些知识，研究生阶段主要研究方向为自然语言处理(指代消解)。
 
 以第一作者发表EI检索的国际会议论文三篇，软件著作权一篇。
+> Zhu Y. A book recommendation algorithm based on collaborative filtering[C]. international conference on computer science and network technology, 2016: 286-289.
+> Zhu Y, Song W, Liu L, et al. Collaborative Filtering Recommender Algorithm Based on Comments and Score[C]. international symposium on computational intelligence and design, 2017.
+> Improving Anaphora Resolution by Animacy Identification. （检索中）
 
----
-兴趣爱好十分不广泛，偏宅，会拍几张照片，喜欢玩儿Minecraft
 
+日常爱好游泳看书，会拍几张照片，休息时候会玩儿Minecraft
 
 ---
 ![image](/index/IMG_8752.JPG)
 
----
-![image](/index/4.png)
 
 
-红石新手/喜欢挖矿/擅长搭火柴盒/偏向把房间建在地下并且伪装/有多个安全屋
+
+
