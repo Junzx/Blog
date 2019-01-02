@@ -18,9 +18,7 @@ top: 1
 
     
 	# coding=utf-8
-	__author__ = 'Leonard'
-	 
-	 
+		 
 	def is_leap_year(year):
 	    # 判断是否为闰年
 	    if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
@@ -125,4 +123,4 @@ top: 1
 此处id即是日历中的#号后面的id
 
 
-### ! 居中所使用的<center>貌似会使表格失效，因此去掉了该标签
+### update:居中所使用的< center>貌似会使表格失效，因此去掉了该标签
