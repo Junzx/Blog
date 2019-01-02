@@ -3,7 +3,7 @@ title: 2018日记&日报
 date: 2018-11-29
 tags:
     - 随笔
-description: 用来记录每天的工作
+description: 用来记录每天的工作-2018
 top: 50
 ---
 ### 使用python生成markdown格式的日历参考：[使用python生成日历](https://junzx.github.io/2018/12/05/how-to-use-python-to-build-markdown-calc/)
