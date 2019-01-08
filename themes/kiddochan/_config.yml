@@ -38,7 +38,7 @@ imglogo:
 favicon: img/icon.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/kiddochan/source/img`.     
 apple_icon: /img/IMG_8752.JPG ## size:114px*114px,please put image into the theme folder `/kiddochan/source/img`.
 # author_img: https://avatars3.githubusercontent.com/u/31405129?s=460&v=4
-author_img: /img/author.jpg ## size:220px*220px.display author avatar picture.if don't want to display,please don't set this.
+author_img: /img/author.JPG ## size:220px*220px.display author avatar picture.if don't want to display,please don't set this.
 banner_img: #img/banner.jpg ## size:1920px*200px+. Banner Picture
 
 ### Theme Color
