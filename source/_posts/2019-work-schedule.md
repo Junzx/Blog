@@ -46,3 +46,10 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 - 收集到了几个有用的数据集
 - 完成前两个sieve
 - 明天预计完成所有的sieve
+
+---
+**<span id="19">1-9</span>**
+
+- 除了sieve6之外都完成了
+- 明天预计解决已完成的中一些bug，打好log
+- 准备春招
