@@ -53,3 +53,9 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 - 除了sieve6之外都完成了
 - 明天预计解决已完成的中一些bug，打好log
 - 准备春招
+
+---
+**<span id="110">1-10</span>**
+
+- Multisieve-bug-fix -关于get_modifier
+- 画set coref的逻辑图
