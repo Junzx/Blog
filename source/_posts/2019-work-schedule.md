@@ -59,3 +59,13 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 
 - Multisieve-bug-fix -关于get_modifier
 - 画set coref的逻辑图
+
+---
+**<span id="113">1-13</span>**
+
+**下周计划**
+
+- 毕设前几章
+- 买无印日程本
+- 程序完成PRF评价部分
+- 程序完成剩余的sieve部分
