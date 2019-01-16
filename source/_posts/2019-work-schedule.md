@@ -69,3 +69,13 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 - 买无印日程本
 - 程序完成PRF评价部分
 - 程序完成剩余的sieve部分
+
+---
+**<span id="116">1-16</span>**
+
+- 尝试使用BiLSTM构建一个mention detection的程序
+- 解决部分消极情绪
+
+---
+**<span id="117">1-17</span>**
+

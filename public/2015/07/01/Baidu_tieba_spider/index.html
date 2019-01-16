@@ -1,0 +1,426 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  
+    <title>爬虫初探——爬取百度贴吧 | Blog of YQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Yuanqing Zhu">
+    
+
+    
+    <meta name="description" content="仿照他人的代码爬取百度贴吧的文本。">
+<meta name="keywords" content="爬虫,学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫初探——爬取百度贴吧">
+<meta property="og:url" content="http://yoursite.com/2015/07/01/Baidu_tieba_spider/index.html">
+<meta property="og:site_name" content="Blog of YQ">
+<meta property="og:description" content="仿照他人的代码爬取百度贴吧的文本。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2015/07/01/Baidu_tieba_spider/psb2.jpg">
+<meta property="og:image" content="http://yoursite.com/2015/07/01/Baidu_tieba_spider/psb.png">
+<meta property="og:updated_time" content="2019-01-07T17:08:16.060Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="爬虫初探——爬取百度贴吧">
+<meta name="twitter:description" content="仿照他人的代码爬取百度贴吧的文本。">
+<meta name="twitter:image" content="http://yoursite.com/2015/07/01/Baidu_tieba_spider/psb2.jpg">
+
+    
+    <link rel="alternative" href="atom.xml" title="Blog of YQ" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="//img/IMG_8752.JPG">
+    <link rel="apple-touch-icon-precomposed" href="//img/IMG_8752.JPG">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Blog of YQ">Blog of YQ</a></h1>
+				<h2 class="blog-motto">我们终将改变潮水的方向。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope="" itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/01/Baidu_tieba_spider/" title="爬虫初探——爬取百度贴吧" itemprop="url">爬虫初探——爬取百度贴吧</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Yuanqing Zhu" target="_blank" itemprop="author">Yuanqing Zhu</a>
+		
+  </p><p class="article-time">
+    <time datetime="2015-06-30T16:00:00.000Z" itemprop="datePublished"> 发表于 2015-07-01</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行时："><span class="toc-number">1.</span> <span class="toc-text">运行时：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行结果："><span class="toc-number">2.</span> <span class="toc-text">运行结果：</span></a></li></ol>
+		
+		</div>
+		
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">import re</span><br><span class="line">import urllib2</span><br><span class="line">class BDTB(object):</span><br><span class="line">    def __init__(self,urlIn,seeLz):</span><br><span class="line">        self.baseUrl=urlIn</span><br><span class="line">        self.seeLz=&apos;?see_Lz=&apos;+str(seeLz)</span><br><span class="line">    def getPage(self,page):</span><br><span class="line">        try:</span><br><span class="line">            self.baseUrl=self.baseUrl+self.seeLz+&apos;&amp;pn=&apos;+str(page)</span><br><span class="line">            req=urllib2.Request(self.baseUrl)</span><br><span class="line">            response=urllib2.urlopen(req)</span><br><span class="line">            #return response.read().decode(&apos;utf-8&apos;)     # Maybe Bugs</span><br><span class="line">            return response</span><br><span class="line">        except Exception,e:</span><br><span class="line">            print &apos;Open Error:&apos;,e</span><br><span class="line">    def getTitle(self):</span><br><span class="line">        try:</span><br><span class="line">            aPage=self.getPage(1)</span><br><span class="line">            pattern=re.compile(r&apos;&lt;h3 class=&quot;core_title_txt.*?&quot; title=&quot;(.*?)&quot; style.*?&lt;/h3&gt;&apos;,re.S)</span><br><span class="line">            result=re.search(pattern,str(aPage.read()))</span><br><span class="line">            testWriteTool(result.group(1).strip())</span><br><span class="line">            return result.group(1).strip()      # return a title of page</span><br><span class="line">            #testWriteTool(aPage.read())</span><br><span class="line">        except Exception,e:</span><br><span class="line">            print &apos;Error in getTitle:&apos;,e</span><br><span class="line">    def getPageNum(self):</span><br><span class="line">        try:</span><br><span class="line">            aPage=self.getPage(1)</span><br><span class="line">            #pattern=re.compile(r&apos;&lt;li class=&quot;l_reply_num&quot;.*?&lt;span class=&quot;red&quot;&gt;.*?(\d*)&lt;/font&gt;&apos;,re.S)</span><br><span class="line">            pattern=re.compile(r&apos;&lt;li class=&quot;l_reply_num&quot;.*&gt;&lt;span class.*&gt;(\d+)&lt;/span&gt;&apos;,re.S)</span><br><span class="line">            #pattern = re.compile(&apos;&lt;li class=&quot;l_reply_num.*?&lt;/span&gt;.*?&lt;span.*?&gt;(.*?)&lt;/span&gt;&apos;,re.S)</span><br><span class="line">            result=re.search(pattern,str(aPage.read()))</span><br><span class="line">            #print result.group(1).strip()</span><br><span class="line">            return result.group(1).strip()</span><br><span class="line">        except Exception,e:</span><br><span class="line">            print &apos;Error in getPageNum:&apos;,e</span><br><span class="line">    def getContent(self,page=1):</span><br><span class="line">        try:</span><br><span class="line">            i=1</span><br><span class="line">            aPage=self.getPage(page)</span><br><span class="line">            pattern=re.compile(&apos;&lt;div id=&quot;post_content_.*?&gt;(.*?)&lt;/div&gt;&apos;,re.S)</span><br><span class="line">            #pattern=re.compile(&apos;&lt;div id=&quot;post_content_.*?&gt;(.*?)&lt;/div&gt;&apos;,re.S)</span><br><span class="line">            items=re.findall(pattern,str(aPage.read()))</span><br><span class="line">            #print &apos;we get &apos;,len(items),&apos;contents&apos;</span><br><span class="line">            f=open(&apos;ans.txt&apos;,&apos;a+&apos;)</span><br><span class="line">            for item in items:</span><br><span class="line">                temp=str(i)+&apos;:&apos;+item.strip()+&apos;\n&apos;</span><br><span class="line">                f.writelines(temp)</span><br><span class="line">                i+=1</span><br><span class="line">                #print item</span><br><span class="line">            f.close()</span><br><span class="line">        except Exception,e:</span><br><span class="line">            print &apos;Error in getContent:&apos;,e</span><br><span class="line">        else:</span><br><span class="line">            print &apos;We Loading Txt....&apos;</span><br><span class="line">def testWriteTool(objStr):</span><br><span class="line">    f=open(&apos;ans.txt&apos;,&apos;a+&apos;)</span><br><span class="line">    f.writelines(objStr+&apos;\n&apos;)</span><br><span class="line">    f.close()</span><br><span class="line">def startFunc(url):</span><br><span class="line">    f=open(&apos;ans.txt&apos;,&apos;a+&apos;)</span><br><span class="line">    f.truncate()</span><br><span class="line">    f.close()</span><br><span class="line">    #============= start clear file</span><br><span class="line">    test=BDTB(url,1)</span><br><span class="line">    if len(test.getPage(1).read())!=0:print &apos;yes we can conn&apos;</span><br><span class="line">    print &apos;Title:&apos;,test.getTitle()</span><br><span class="line">    numOfPage=test.getPageNum()</span><br><span class="line">    print &apos;PageNum:&apos;,numOfPage</span><br><span class="line">    for i in range(1,int(numOfPage)+1):</span><br><span class="line">        test.getContent(i)</span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    testUrl1=&apos;http://tieba.baidu.com/p/3138733512&apos;      #2014-07-01 16:22</span><br><span class="line">    testUrl2=&apos;http://tieba.baidu.com/p/3812772126&apos;      #2015-06-07 20:53</span><br><span class="line">    testUrl3=&apos;http://tieba.baidu.com/p/3180989704&apos;      #2014-07-22 19:05</span><br><span class="line">    </span><br><span class="line">    #=======================</span><br><span class="line">    #startFunc(testUrl1)</span><br><span class="line">    startFunc(testUrl2)</span><br><span class="line">    #startFunc(testUrl3)</span><br></pre></td></tr></table></figure>
+<p>参考：<a href="http://cuiqingcai.com/993.html" target="_blank" rel="noopener">http://cuiqingcai.com/993.html</a><br>写的挺详细的 虽然在实现的时候也出了这样那样的错吧</p>
+<h2 id="运行时："><a href="#运行时：" class="headerlink" title="运行时："></a>运行时：</h2><p><img src="/2015/07/01/Baidu_tieba_spider/psb2.jpg" alt="image"></p>
+<h2 id="运行结果："><a href="#运行结果：" class="headerlink" title="运行结果："></a>运行结果：</h2><p><img src="/2015/07/01/Baidu_tieba_spider/psb.png" alt="image"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/爬虫/">爬虫</a><a href="/tags/学习/">学习</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev">
+ <a href="/2016/11/19/CorefNLP相关-资料&笔记/" title="CoreNLP资料">
+  <span>
+  CoreNLP资料</span>
+</a>
+</div>
+
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:candnes@sina.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+
+	</div>
+</div>
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/NLP/" title="NLP">NLP<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Algorithm/" title="Algorithm">Algorithm<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/随笔/" title="随笔">随笔<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CR/" title="CR">CR<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tensorflow/" title="Tensorflow">Tensorflow<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CoreNLP/" title="CoreNLP">CoreNLP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/学习/" title="学习">学习<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/hsihohuang/kiddochan" target="_blank" title="Kiddochan">Kiddochan</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Yuanqing Zhu">Yuanqing Zhu</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
