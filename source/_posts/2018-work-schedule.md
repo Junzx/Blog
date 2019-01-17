@@ -285,7 +285,7 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 - 排序总结
 - 过以前的论文，找到对毕设可能有用的
 
-![image](/work-schedule/1.JPG)
+![image](/2018-work-schedule/1.JPG)
 
 | 算法 | 稳定性 | 时间复杂度 | 空间复杂度 | 
 | ---| ---| ---| ---| ---|
