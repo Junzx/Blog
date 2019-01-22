@@ -113,5 +113,24 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 ---
 **<span id="122">1-22</span>**
 
-- 训练
+今日成果
+- 训练中文spacy: https://junzx.github.io/2019/01/22/spacy-learning/
 - 解决分支冲突的问题
+
+    ```
+    问题描述：
+    
+    clone Blog.git后，修改各md，然后执行add/commit/push可以正常push到Blog.git。但是当执行hexo d后，项目会被设置为“分支 master 设置为跟踪来自 git@github.com:Junzx/junzx.github.io.git 的远程分支 master。”，此时如果执行add/commit/push会将整个Blog.git push到github.io项目上。
+    
+    解决方案：
+    如果想push Blog.git 应该使用“git push -u origin master”
+    ```
+
+- 由于之前[任务](https://github.com/huggingface/neuralcoref)未完成，没有写论文
+  - https://github.com/huggingface/neuralcoref
+  - https://github.com/huggingface/neuralcoref/blob/master/neuralcoref/train/training.md
+  - https://medium.com/huggingface/how-to-train-a-neural-coreference-model-neuralcoref-2-7bb30c1abdfe
+
+明日计划
+- 去医院
+- 完成论文第三章内容
