@@ -80,4 +80,32 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 **<span id="117">1-17</span>**
 
 - 买到了日程本，review之前的计划
-- 整理了之前写的排序的笔记，合并为：[算法入门——python实现部分排序](https://junzx.github.io/algorithm-learning-sort )
+- 整理了之前写的排序的笔记，合并为：[算法入门——python实现部分排序](https://junzx.github.io/2018/12/12/algorithm-learning-sort/)
+
+---
+**<span id="118">1-18</span>**
+
+- 添加调用计算prf的perl程序，增加调用接口函数
+
+---
+**<span id="120">1-20</span>**
+
+今日成果
+- bug fix：解决将结果写入文件的问题
+
+明日计划
+- 完成论文第二章
+- 看剩下的几个sieve的论文
+
+---
+**<span id="121">1-21</span>**
+
+今日成果
+- 解决linux下hexo博客更新的问题，之前的问题是g、s均正常，但是deploy不正常，后将Blog下.deplot_git手动清除后d成功
+- 完成论文第二章的一半，后面需要继续看论文然后完善
+- 完成调用scorer.pl的函数，实现绘图的工具
+- 增加了几个sieve，主要是采用之前项目的代码
+
+明日计划
+- 关注待学习的课程，制定相应的计划
+- 完成论文第三章

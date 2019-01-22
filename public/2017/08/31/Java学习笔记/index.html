@@ -1,0 +1,486 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  
+    <title>Java学习笔记 | Blog of YQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Yuanqing Zhu">
+    
+
+    
+    <meta name="description" content="java读书笔记">
+<meta name="keywords" content="笔记,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/08/31/Java学习笔记/index.html">
+<meta property="og:site_name" content="Blog of YQ">
+<meta property="og:description" content="java读书笔记">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-20T15:59:50.565Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java学习笔记">
+<meta name="twitter:description" content="java读书笔记">
+
+    
+    <link rel="alternative" href="atom.xml" title="Blog of YQ" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="//img/IMG_8752.JPG">
+    <link rel="apple-touch-icon-precomposed" href="//img/IMG_8752.JPG">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Blog of YQ">Blog of YQ</a></h1>
+				<h2 class="blog-motto">我们终将改变潮水的方向。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope="" itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/08/31/Java学习笔记/" title="Java学习笔记" itemprop="url">Java学习笔记</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Yuanqing Zhu" target="_blank" itemprop="author">Yuanqing Zhu</a>
+		
+  </p><p class="article-time">
+    <time datetime="2017-08-30T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-08-31</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#参考图书：21天学通Java（第六版），人民邮电出版社，-美-Rogers-Cadenhead"><span class="toc-number">1.</span> <span class="toc-text">参考图书：21天学通Java（第六版），人民邮电出版社，[美]Rogers Cadenhead</span></a></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#第一章"><span class="toc-number"></span> <span class="toc-text">第一章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二章"><span class="toc-number"></span> <span class="toc-text">第二章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三章"><span class="toc-number"></span> <span class="toc-text">第三章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四章"><span class="toc-number"></span> <span class="toc-text">第四章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第五章"><span class="toc-number"></span> <span class="toc-text">第五章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第六章"><span class="toc-number"></span> <span class="toc-text">第六章</span></a>
+		
+		</li></div>
+		
+		<hr>
+<h5 id="参考图书：21天学通Java（第六版），人民邮电出版社，-美-Rogers-Cadenhead"><a href="#参考图书：21天学通Java（第六版），人民邮电出版社，-美-Rogers-Cadenhead" class="headerlink" title="参考图书：21天学通Java（第六版），人民邮电出版社，[美]Rogers Cadenhead"></a>参考图书：21天学通Java（第六版），人民邮电出版社，[美]Rogers Cadenhead</h5><hr>
+<h4 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h4><ul>
+<li>类变量（class variable）：定义类的属性，不同的实例公用这个属性</li>
+<li>类方法（class method）：适用于类本身<p></p></li>
+<li>三个重要概念：继承、借口、包</li>
+<li>继承其他类的叫子类，被继承的叫超类</li>
+<li>在子类中创建一个防止调用超类中定义的方法。为此，方法的名称、返回值和参数必须与超类方法相同，这称谓<strong>覆盖</strong></li>
+<li>Java单继承：仅有一个超类</li>
+</ul>
+<h4 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h4><ul>
+<li>变量命名法：小驼峰</li>
+<li>数据类型（基本）：<ul>
+<li>存储整数：byte、short、int、long</li>
+<li>浮点数：float、double</li>
+<li>char、boolean</li>
+</ul>
+</li>
+<li>定义常量： 关键字：<strong>final</strong>。如：final float PI = 3.14；</li>
+<li>输出：System.out.println(“str1” + “str2”);  // 在输出字符串后面回车，区别于print</li>
+<li>字符串对象是Java中的真正对象</li>
+<li>逻辑运算符：&amp; 与 &amp;&amp;。如果用&amp; ，不论两边式子真假，两边都会计算；如果是&amp;&amp;，lazy模式，若左边为true，右边则不会计算。</li>
+</ul>
+<h4 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h4><ul>
+<li>参数数目和类型是区分构造函数的唯一途径</li>
+<li>类变量：关键字：<strong>static</strong>，修改它会改变所有的实例。</li>
+<li>System.out.format(“Test:$，d%n”, data）；  // %，d是十进制数，%n是回车符</li>
+<li>System位于java.lang包中</li>
+<li>System.out 是一个类型，他存储了PrintSteam的一个实例</li>
+<li>引用是一个地址，指明了对象的变量和方法的存储位置</li>
+<li>将对象赋值给变量或者作为参数传递给方法的时候，使用的仅仅是对象的引用。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Interger dataCount = new Integer(10);</span><br><span class="line">int newCount = dataCount.intValue();</span><br><span class="line">// 这里，dataCount是个Integer对象</span><br></pre></td></tr></table></figure>
+<ul>
+<li>若判断对象所属于的类：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. String Name = key.getClass().getName();</span><br><span class="line">2. 用instanceof</span><br><span class="line">boolean check2 = pt instanceof String;</span><br></pre></td></tr></table></figure>
+<h4 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h4><ul>
+<li>块语句，即{}，但是直接用并不常见</li>
+<li>在块中声明的局部变量创建了作用域</li>
+<li>if，需要加括号</li>
+<li>三目运算：test?trueresult : falseresult;</li>
+<li>break &amp; continue 标号，标记要跳到哪里，P65</li>
+</ul>
+<h4 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h4><ul>
+<li><p>指定超类：关键字：<strong>extends</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Son extends Father &#123;</span><br><span class="line">pass</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>类变量：关键字：<strong>static</strong>；例子：static int num；</p>
+</li>
+<li>this：类似于python中的self</li>
+<li>P80 构造函数相关</li>
+<li>调用超类的构造函数：super.methodname(arguments)</li>
+</ul>
+<h4 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h4><ul>
+<li>static：创建类方法和类变量</li>
+<li>final：设置常量。常与static一起使用，例如：static final String TITLE = “sss”;</li>
+<li>final方法不能被子类覆盖。</li>
+<li>final类不能被继承。在final类中，所有的方法都是final的，无需再次限定。</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/笔记/">笔记</a><a href="/tags/Java/">Java</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev">
+ <a href="/2018/04/24/组会分享/" title="组会分享">
+  <span>
+  组会分享</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/08/24/conll数据格式/" title="conll2011数据格式">
+ <span>conll2011数据格式
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:candnes@sina.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+
+	</div>
+</div>
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/NLP/" title="NLP">NLP<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/随笔/" title="随笔">随笔<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CR/" title="CR">CR<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tensorflow/" title="Tensorflow">Tensorflow<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Algorithm/" title="Algorithm">Algorithm<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CoreNLP/" title="CoreNLP">CoreNLP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/学习/" title="学习">学习<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/hsihohuang/kiddochan" target="_blank" title="Kiddochan">Kiddochan</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Yuanqing Zhu">Yuanqing Zhu</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
