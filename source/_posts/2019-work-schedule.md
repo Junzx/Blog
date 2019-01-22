@@ -114,3 +114,4 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 **<span id="122">1-22</span>**
 
 - 训练
+- 解决分支冲突的问题
