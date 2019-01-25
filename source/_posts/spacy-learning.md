@@ -32,6 +32,9 @@ top: 1
       然后执行：
       conda install --offline pytorch-1.0.0-py2.7_cuda9.0.176_cudnn7.4.1_1\ \(1\).tar.bz2
       ```
+- 配置jupyter notebook
+  - 参考：https://www.jianshu.com/p/afea092dda1d
+  - 
 
 - 所需条件（[来自作者的简介](https://github.com/huggingface/neuralcoref/blob/master/neuralcoref/train/training.md#train-on-a-new-language)）
   - parser to parse chinese
@@ -45,7 +48,7 @@ top: 1
     pip install -e .
     (注：上面e后面有个小数点)
 
-### 进行训练
+### [准备数据](https://github.com/huggingface/neuralcoref/blob/master/neuralcoref/train/training.md#prepare-the-data)
 
 
 ![image](/spacy-learning/1.png)
@@ -53,3 +56,9 @@ top: 1
 遇到问题
 
 ![image](/spacy-learning/2.png)
+
+分析
+
+neuralcoref包中没有相应的属性，类似的情况也发生在neuralcoref.learn中。通过import并打印属性可以看到，因此还有一点问题
+
+![image](/spacy-learning/3.png)
