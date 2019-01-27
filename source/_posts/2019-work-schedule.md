@@ -139,3 +139,11 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 **<span id="123">1-23</span>**
 
 - bug fix & review
+
+
+
+---
+**<span id="126">1-26</span>**
+
+- 参与北京GDG组织的TF入门CodeLab
+- 收拾后天去南京的物品

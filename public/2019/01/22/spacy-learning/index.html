@@ -21,7 +21,8 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/01/22/spacy-learning/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/22/spacy-learning/2.png">
-<meta property="og:updated_time" content="2019-01-22T15:26:23.884Z">
+<meta property="og:image" content="http://yoursite.com/2019/01/22/spacy-learning/3.png">
+<meta property="og:updated_time" content="2019-01-27T09:10:41.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="训练中文spacy模型">
 <meta name="twitter:description" content="train and modify the neural coreference model, use PyTorch">
@@ -97,7 +98,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备工作"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装NeuralCoref"><span class="toc-number">2.</span> <span class="toc-text">安装NeuralCoref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进行训练"><span class="toc-number">3.</span> <span class="toc-text">进行训练</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备工作"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装NeuralCoref"><span class="toc-number">2.</span> <span class="toc-text">安装NeuralCoref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备数据"><span class="toc-number">3.</span> <span class="toc-text">准备数据</span></a></li></ol>
 		
 		</div>
 		
@@ -118,6 +119,12 @@ source deactivate
 </li>
 </ul>
 </li>
+<li><p>配置jupyter notebook</p>
+<ul>
+<li>参考：<a href="https://www.jianshu.com/p/afea092dda1d" target="_blank" rel="noopener">https://www.jianshu.com/p/afea092dda1d</a></li>
+<li></li>
+</ul>
+</li>
 <li><p>所需条件（<a href="https://github.com/huggingface/neuralcoref/blob/master/neuralcoref/train/training.md#train-on-a-new-language" target="_blank" rel="noopener">来自作者的简介</a>）</p>
 <ul>
 <li>parser to parse chinese</li>
@@ -130,9 +137,12 @@ source deactivate
 cd neuralcoref
 pip install -e .
 (注：上面e后面有个小数点)
-</code></pre><h3 id="进行训练"><a href="#进行训练" class="headerlink" title="进行训练"></a>进行训练</h3><p><img src="/2019/01/22/spacy-learning/1.png" alt="image"></p>
+</code></pre><h3 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a><a href="https://github.com/huggingface/neuralcoref/blob/master/neuralcoref/train/training.md#prepare-the-data" target="_blank" rel="noopener">准备数据</a></h3><p><img src="/2019/01/22/spacy-learning/1.png" alt="image"></p>
 <p>遇到问题</p>
 <p><img src="/2019/01/22/spacy-learning/2.png" alt="image"></p>
+<p>分析</p>
+<p>neuralcoref包中没有相应的属性，类似的情况也发生在neuralcoref.learn中。通过import并打印属性可以看到，因此还有一点问题</p>
+<p><img src="/2019/01/22/spacy-learning/3.png" alt="image"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -219,6 +229,10 @@ pip install -e .
 			
 		
 			
+				<li><a href="/tags/Algorithm/" title="Algorithm">Algorithm<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/学习/" title="学习">学习<sup>2</sup></a></li>
 			
 		
@@ -227,7 +241,11 @@ pip install -e .
 			
 		
 			
-				<li><a href="/tags/Algorithm/" title="Algorithm">Algorithm<sup>2</sup></a></li>
+				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>1</sup></a></li>
 			
 		
 			
@@ -236,14 +254,6 @@ pip install -e .
 		
 			
 				<li><a href="/tags/PyTorch/" title="PyTorch">PyTorch<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/笔记/" title="笔记">笔记<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
 			
 		
 			
