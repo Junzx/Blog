@@ -1,0 +1,634 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  
+    <title>Hyporch-笔记 | Blog of YQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Yuanqing Zhu">
+    
+
+    
+    <meta name="description" content="学习笔记">
+<meta name="keywords" content="NLP,CR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hyporch-笔记">
+<meta property="og:url" content="http://yoursite.com/2018/07/14/论文笔记/index.html">
+<meta property="og:site_name" content="Blog of YQ">
+<meta property="og:description" content="学习笔记">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-27T09:10:41.762Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hyporch-笔记">
+<meta name="twitter:description" content="学习笔记">
+
+    
+    <link rel="alternative" href="atom.xml" title="Blog of YQ" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="//img/IMG_8752.JPG">
+    <link rel="apple-touch-icon-precomposed" href="//img/IMG_8752.JPG">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Blog of YQ">Blog of YQ</a></h1>
+				<h2 class="blog-motto">我们终将改变潮水的方向。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope="" itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/07/14/论文笔记/" title="Hyporch-笔记" itemprop="url">Hyporch-笔记</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Yuanqing Zhu" target="_blank" itemprop="author">Yuanqing Zhu</a>
+		
+  </p><p class="article-time">
+    <time datetime="2018-07-13T16:00:00.000Z" itemprop="datePublished"> 发表于 2018-07-14</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Section-1-Introduction"><span class="toc-number">2.</span> <span class="toc-text">Section 1. Introduction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Section-2-Mention-Detection"><span class="toc-number">3.</span> <span class="toc-text">Section 2. Mention Detection</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Section-3-Coreference-Resolution"><span class="toc-number">4.</span> <span class="toc-text">Section 3. Coreference Resolution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Section-4-Parameter-Estimation（参数估计）"><span class="toc-number">5.</span> <span class="toc-text">Section 4. Parameter Estimation（参数估计）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Section-5-Results-and-Discussion"><span class="toc-number">6.</span> <span class="toc-text">Section 5. Results and Discussion</span></a></li></ol>
+		
+		</div>
+		
+		<h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h4><p>采用了一种混合方法来指代消解任务，结合了基于规则方法的优势和基于学习方法的优势。评分很高。</p>
+<h4 id="Section-1-Introduction"><a href="#Section-1-Introduction" class="headerlink" title="Section 1. Introduction"></a>Section 1. Introduction</h4><ul>
+<li>拓展了CoNLL2012中的任务，从单一语言→多语言。针对三种语言：英语、汉语、阿拉伯语。</li>
+<li>针对这三种语言都设计了系统</li>
+<li>Four tracks：<ul>
+<li>closed track：for three languages</li>
+<li>open track： for Chinese</li>
+</ul>
+</li>
+<li>有两个明显的特征：<ul>
+<li>往年的用的是基于规则的方法<strong>或</strong>基于学习的方法，我们这回将他们的优势结合起来了。</li>
+<li>往年的人没有开发“genre-specific”信息，我们对我们系统参数做出了优化，遵守了每个genre。</li>
+</ul>
+</li>
+<li>我们采用混合方法的原因是因为rule-based method 和learning-based method都有唯一的长处。</li>
+<li>根据上届CoNLL任务的方法，可以采用一个简单规则的公平小集合。</li>
+<li>我们先前的在用ml方法解决指代消解任务的工作，可以在启发词汇特征，优化XXXX  <strong>这段没懂</strong></li>
+<li>在本系统中，采用正常的架构来完成实体检测任务（在消解之前），‘期望评价方法’这两个组件被充分利用。</li>
+<li>本篇论文的布局安排：<ul>
+<li>mention detection conponent(Section2)</li>
+<li>coreference resolution component(Section3)</li>
+<li>show how their parameters are jointly optimized(Section4)/展示决定因素是如何优化的</li>
+<li>评估&amp;实验（Section5）</li>
+</ul>
+</li>
+</ul>
+<h4 id="Section-2-Mention-Detection"><a href="#Section-2-Mention-Detection" class="headerlink" title="Section 2. Mention Detection"></a>Section 2. Mention Detection</h4><ul>
+<li>为了保证准确率和召回率的平衡，我们采用了一种<strong>两步走</strong>的方法。——“extraction step” &amp; “pruning step”<ul>
+<li>首先，在<em>extraction step</em> 中，我们<strong>定位命名实体</strong>，<strong>采用启发式”language-specific”方法来提取mentions</strong>，以上工作从一个句法分析树，尽量增加召回率。</li>
+<li>然后，在<em>pruning step</em>中，我们<strong>采用启发式language-specific剪枝和基于学习的language-independent剪枝</strong>。</li>
+<li>总结，在step1中，定位实体，提取mention，增加召回率。在step2中，采用基于启发式和基于学习的剪枝</li>
+</ul>
+</li>
+<li>Heuristic Extraction and Pruning（启发式提取和剪枝）<ul>
+<li>英语：<ul>
+<li>在提取工作中，我们从相邻文本<strong>span s</strong>中创建候选mention，如果span s满足：<ol>
+<li>s是一个在句法分析树种的PRP或者NP</li>
+<li>s作为一个NE，但不是PERCENT，MONEY，QUANTITY或者CARDINAL</li>
+</ol>
+</li>
+<li>在剪枝工作中，我们将移除一个候选mention mk，如果mk满足：<ol>
+<li>mk夹在一个很大的mention mj中，并且这个mk和mj有共同的头部</li>
+<li>mk有一个量词或者一个表示部分的修饰语</li>
+<li>mk是一个单数常见NP，我们保留与时间有关的mention（例如today）</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>中文<ul>
+<li>在提取工作中，我们从句法树中的所有NP，QP结点创建中文mention</li>
+<li>在剪枝工作中，我们将移除一个候选mention mk，如果mk满足：<ol>
+<li>mk夹在一个很大的mention mj中，并且这个mk和mj有共同的头部。除非如果mk和mj在一篇新闻通信中。不像其他的文件标注，中文新闻通信文档注释确实考虑了这些共指对。</li>
+<li>mk是一个NE，比如说PERCENT，MONEY，QUANTITY和CARDINAL</li>
+<li>mk是一个疑问代词，例如what，where</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>阿拉伯<ul>
+<li>略</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Learning-Based Pruning（基于学习的剪枝）<ul>
+<li>当启发式方法定位了候选mention后，还不能确定这个候选mention就是可以共指的。为了增强剪枝效果（因此~mention detection的准确率），我们采用了基于学习的方法来剪枝。</li>
+<li>描述：我们用train data来定位和随后丢弃这些可能不能共指的候选mentions</li>
+<li>具体来说，对于每个在test数据集中，并在启发式剪枝中留下来的mention mk，我们计算它的<em>mention coreference probability</em>，表示mk的“head noun”与其他mention产生共指关系的可能性。如果这个可能性没有超过阈值tc，我们就将mk从候选mention列表中移除。Section4将讲解tc如何结合共指关系成分参数来优化共指评价方法，的时候共同学习（这句话是不是语序有问题）</li>
+<li>我们从train data中计算mk的<em>mention 从reference probability</em>评估。具体来说，因为OntoNotes里仅有“无-单数”是被注释的。因此我们可以用mk的“head noun”被注释次数（在gold mentions），由mk的“head noun”所有的出现次数（分离）。</li>
+<li>如果mk的“head noun”没有在train data中出现，我们就设定它的“mcp”为1.意味着我们让它从过滤器中先pass掉。换句话说，我们比较保守，并且对于不能计算出“mcp”的mention不做处理。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Section-3-Coreference-Resolution"><a href="#Section-3-Coreference-Resolution" class="headerlink" title="Section 3. Coreference Resolution"></a>Section 3. Coreference Resolution</h4><ul>
+<li>概述<ul>
+<li>像mention detection 组件中，我们的从reference resolution组件也采用了启发式和机器学习方法。</li>
+<li>我们使用了stanford的多轮共指消解方法（2011，Lee）来作为启发式共指消解。然而这些轮都是非词汇性的，我们用ML方法并结合词汇信息来增强多轮共指消解方法。</li>
+<li>尽管不同的轮是针对不同的语言使用的，但是我们吸收词汇信息后的方法每轮对于所有的语言是一样的（WTF？？？）</li>
+</ul>
+</li>
+<li>The Multi-Pass Sieve Approach<ul>
+<li>这轮由一个或者多个启发式规则组成。每个规则都基于一个或者多个条件，从两个mentions中提取一个共指关系。举个例子来说，一个在Standford的“discourse processing sieve”将按照以下规则判断两个mention是不是共指：<ol>
+<li>他们都是代词</li>
+<li>他们都是同一个speaker说的（生产的/制造的）</li>
+</ol>
+</li>
+<li>sieves由他们的准确率进行排序。（？）</li>
+<li>为了确定一个文件中的mention集合，决策器对它们用了多轮（Multi-Pass）：<ul>
+<li>在i-th pass中，仅用i-th中的规则对每个mention mk找一个先行词。当找这个先行词的时候，它的候选先行词被按一个顺序来访问，（这个顺序）通过它们在相关句法分析树的位置决定。</li>
+</ul>
+</li>
+<li>i-th中部分mentions的聚类，然后被传递（pass）给i+1-th pass。（人话，上次的聚类结果给下次用）</li>
+<li>因此，后面的passes可以充分利用前面的信息，但是之前确立的共指链不会比后面的更重要（？）</li>
+</ul>
+</li>
+<li><p>The Sieves </p>
+<ul>
+<li>For English<ul>
+<li>参照Standford的方法，采用12-sieves（Lee是13sieves，有一个是mention detection）</li>
+<li>因为我们加入了closed track，我们重复执行了10sieves，没有使用外部知识源。</li>
+<li>这10个sieves在Table2种list了。</li>
+<li>我们忽视了别名（Alias sieve）和词汇链（Lexical Chain sieve），这两个sieve用WordNet、WiKi和Freebase上的信息进行计算</li>
+</ul>
+</li>
+<li>For Chinese<ul>
+<li>概述：<ul>
+<li>我们参加了closed track 和open track</li>
+<li>这轮我们的应用对两个track都是相同的，除了我们对open track使用NE信息来改进某些系统。</li>
+<li>为了自动获取NE注释，我们使用了一个在train data中，通过gold NE注释训练出的<strong>NE模型</strong></li>
+</ul>
+</li>
+<li>中文决策器由<strong>9轮</strong>组成。(这里有个中英文对比的表格/Table2）</li>
+<li>这些sieves在基本上和英语参照相同的方式被执行，除了它们中的一小部分，（这一小部分）被修饰用以证明 一些独有的特性或者中文指代注释。（这句话有点儿难翻译）</li>
+<li>就像以下的详细介绍，（接下来会讲3个sieve）<ul>
+<li>我们<strong>介绍了一个新sieve</strong>，the Chinese Head Match sieve；</li>
+<li><strong>调整了两个现存的sieves</strong>,the Precise Constructs sieve, the Pronoun sieve</li>
+</ul>
+</li>
+<li><strong>Chinese Head Match sieve</strong><ul>
+<li>像Section2中说到的，一个mention和它的embedding mention能够称为共指关系是由于它们有相同头部。</li>
+<li>为了定位这些指代关系，我们执行了<strong>Same Head sieve</strong>，如果两个mention mj和mk有相同的Head并且mk is embedded within mj，（这个sieve）就假设两个mentions是共指的。</li>
+<li>这个规则有个<strong>例外</strong>，如果mj是一个由两个或者更多NP组成的同级（coordinate）NP，并且mk是这些NP之一，这两个mentions将不作为指代关系。</li>
+</ul>
+</li>
+<li><strong>Precise Constructs sieve</strong><ul>
+<li>像Lee2011中的，Precise Construct sieve 判断两个mentions是不是共指关系的方法是基于信息，（这个信息）比如说一个mention是不是另一个mention的首字母缩略词，或者说它们是不是来自一个同位语关系或者系表关系。</li>
+<li>我们给这个sieve吸收其他的规则来处理中文缩写中特殊的例子。——外国人名的缩写、中国人名的缩写</li>
+</ul>
+</li>
+<li><strong>Pronouns sieves</strong><ul>
+<li>这个sieve通过利用像mention的<em>性别、数量</em>这样的语法信息，解决了代词关系。</li>
+<li>这些语法信息主要针对英文，对于中文并不可信（not true）</li>
+<li>为了获取针对中文的像这样的语法信息，我们设计了一个简单的方法。如下三步：<ul>
+<li>首先我们设定了简单的启发式来从这些中文NP中提取容易推断的语法信息。举例来说，我们可以启发式地确定性别，数量，物种，比如“ 她【she】是「Female，single，Animate」”；比如“ 它们【they】是「未知的，复数，无生命的」”。                再加上我们能决定一个有命名实体信息的mention的语法特征。举个例子，一个PERSON能够有指定的语法特性，「未知，单数，动物」</li>
+<li>其次，我们仿真了这些有启发式地已确定的语法特征值。观察在一个共指链中所有的mentions，它们的性别，数量，物种应该统一。详细来说，给定一个train文本，如果在共指链的一个mention是启发式的被语法信息所标记，我们自动所有的还需处理的mentions注释相同的语法特征值。</li>
+<li>最后，我们自动创建了六单词列表（six word lists），包含「1，物种词语；2，无生命词语；3，男性词语；4，女性词语；5，单数词；6，复数词」。<ul>
+<li>Specifically,we populate these word lists with the grammatically annotated mentions from the previous step,where each element of a word list is composed of the head of a mention and a count indicating the number of time the mention is annotated with the corresponding grammatical attribute value.</li>
+</ul>
+</li>
+<li>然后我们可以在test文本上用这些词链来确定mentions的属性值。由于这些词链规模较小，而且我们的目的是增加准确率。如果这三个属性中的每一个(?)，一个mention有一个未知(<em>Unknown</em>)属性而其他的mentions有已知(<em>Known</em>)属性，我们就将两个mentions考虑为共指关系。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>总结<ul>
+<li>从Table2中可以看到，我们的中文系统没有<em>Relaxed String Match sieve</em>，不像英语有对应的。回顾这个sieve对两个mentions，如果跟在落下的文本的字符串紧跟着它们的head words是相同的，就把他们当作共指关系。（例子：<em>Michael Wolf</em>,and <em>Michael Wolf,a contributing editor for “New York”.</em>)</li>
+<li>由于中文人名经常有单个字符组成，并且heads很少跟在别的中文词语后面，我们相信<em>Relaxed Head Match</em>对于确定中文的共指关系没什么用。</li>
+<li>因此，中文人名缩写这样的将会交给<em>Precise Constructs sieve</em>处理 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>For Arabic<ul>
+<li>仅用了一轮，the exact match sieve。因为用别的（上面的）效果不好</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Incorporating Lexical Information(结合词法信息)</p>
+<ul>
+<li>像之前提到的一样，我们结合词法信息增强了这个sieve。</li>
+<li>为了利用词法信息，我们首先计算了<em>词法概率</em>。具体来说，对于文本中的每个mention mj和mk，我们首先计算两个概率：<ol>
+<li><em>string-pair（SP-Prob）</em>概率，也就是包含两个mentions的字符串sj和sk是共指的概率。</li>
+<li><em>head-pair（HP-Prob）</em>概率，也就是两个mentions的head 名词hj和hk是共指的概率。</li>
+</ol>
+</li>
+<li>为了更好的评价，我们对training data和这两个mentions进行预处理：<ol>
+<li>对每个英文单词进行小写转换</li>
+<li>通过一个由    字符串形式对每个阿拉伯单词w进行替换，——<strong>这句话是讲处理阿拉伯语的，看不懂，略</strong></li>
+</ol>
+</li>
+<li>如果sj(hj)和sk(hk)没有在training数据集中出现的话，我们就将SP-Prob(mj,mk)(HP-Prob(mj,mk))标记为<em>Undefined</em></li>
+<li>然后，我们通过对sieve方法提出两种扩展，然后用这些词法概率来增强mj和mk的处理结果。<ul>
+<li>第一种扩展着力于增强sieve方法的<em>准确率</em>。具体来说，在进入任何sieve之前，我们需要确认SP-Prob(mj,mk)&lt;=tSPL 或者HP-Prob(mj,mk)&lt;=tHPL。如果是这样，我们的解析器将绕过所有的sieves，并且认为mj，mk不是共指的。<br>我们用了词汇概率来增进准确度，具体来说通过假设两个mentions不是共指的，如果在training data中有“sufficient/足够的”信息来让我们做出这个决定。如果两个概率都没有定义，那么这个mentions对儿在过滤器中留存，然后给sieve管道做后续处理。</li>
+<li>第二种扩展着力于增强sieve方法的<em>召回率</em>。具体来说，我们创建了一个新的sieve，叫<strong>”Lexical Pair sieve</strong>，将这个sieve添加到sieve管道的最后面，如果SP-Prob(mj,mk)&gt;=tSPU or HP-Prob(mj,mk)&gt;=tHPU，就假设mj和mk是共指的。<br>其他的类似第一种扩展，如果这两个概率都没有定义，那么这个sieve将不会处理这个mentions对儿。</li>
+<li>这四个阈值<strong>tSPL，tHPL；tSPU，tHPU</strong>，将在development 数据集上被优化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Section-4-Parameter-Estimation（参数估计）"><a href="#Section-4-Parameter-Estimation（参数估计）" class="headerlink" title="Section 4. Parameter Estimation（参数估计）"></a>Section 4. Parameter Estimation（参数估计）</h4><p>就像之前讨论的一样，我们在development数据上训练系统的参数来优化消解性能。我们的系统有两套可调节的参数。目前为止，我们先看一套参数，命名为<em>五词汇概率阈值</em>，包含tc、tSPL、tHPL、tSPU、tHPU。 再看第二套参数包含<em>rule relaxation parameters</em>.</p><p><br>回顾一下，一个sieve中的每个规则都由一个或多个条件组成。我们联合条件 i 和参数 入i ，（这个参数）是一个控制条件i是否应该被去除的二值。特别的，如果 入i=0，条件i将被从相对应的规则中移除。</p>
+<p>缓和参数的目的应当明确：他们允许我们用机器学习的方法去优化 hand-craft 规则。这一节提出了在development数据集上得到参数的的两种算法。</p>
+<p>在讨论参数优化算法之前，先回顾一下简介。（简介是指）我们分辨特征的方法是我们建立了<em>genre-specific</em>分解器。换句话说，对每种语言的每个genre，我们</p>
+<pre><code>1. 从相应的training数据中，学习词汇概率
+2. 获取最理想的参数值O1，O2，各自/依次用算参数估计算法1和2给development数据估计
+3. O1和O2之一，选择其中可以在development数据集上更好表现的一个来作为最后参数估计的set（？）
+</code></pre><ul>
+<li><p>算法1</p>
+<ul>
+<li>pass</li>
+</ul>
+</li>
+<li><p>算法2</p>
+<ul>
+<li>pass</li>
+</ul>
+</li>
+</ul>
+<h4 id="Section-5-Results-and-Discussion"><a href="#Section-5-Results-and-Discussion" class="headerlink" title="Section 5. Results and Discussion"></a>Section 5. Results and Discussion</h4><p>完整的结果在table3中。</p>
+<ul>
+<li>mention detection results &amp; coreference results 由准确率/召回率/F值来描述。</li>
+<li>为了更好理解这两个参数sets的角色，我们展示了独立的实验。对每个语言-track</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/NLP/">NLP</a><a href="/tags/CR/">CR</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev">
+ <a href="/2018/10/14/python操作excel/" title="python操作excel">
+  <span>
+  python操作excel</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/04/24/组会分享/" title="组会分享">
+ <span>组会分享
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:candnes@sina.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+
+	</div>
+</div>
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/NLP/" title="NLP">NLP<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/随笔/" title="随笔">随笔<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CR/" title="CR">CR<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tensorflow/" title="Tensorflow">Tensorflow<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/学习/" title="学习">学习<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Algorithm/" title="Algorithm">Algorithm<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CoreNLP/" title="CoreNLP">CoreNLP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PyTorch/" title="PyTorch">PyTorch<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/hsihohuang/kiddochan" target="_blank" title="Kiddochan">Kiddochan</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Yuanqing Zhu">Yuanqing Zhu</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
