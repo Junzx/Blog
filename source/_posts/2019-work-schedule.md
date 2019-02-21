@@ -181,3 +181,19 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 **<span id="210">2-10</span>**
 
 - 整理实验发现，某sieve的p可到0.7，但是f始终稳定在0.5，需要解决
+
+--- 
+**<span id="218">2-18</span>**
+
+- 更改论文提纲
+- 考虑如果将prf为0的文档不作统计，效果可以提升0.2左右（每个sieve）
+
+--- 
+**<span id="219">2-19</span>**
+
+- 写论文
+- 将使用lstm提取mention的程序改用pre-trained embedding，遇到一点问题
+  - FailedPreconditionError (see above for traceback): HashTable has different value for same key
+  - 可能是参数问题，占用内存过大
+- lstm遇到奇怪字符报错，如果用try跳过的话会有其他错误，暂未解决
+- https://www.one-tab.com/page/VyQiRQjxQMeMcKVvdw_1JQ
