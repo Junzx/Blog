@@ -158,8 +158,8 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 ---| ---| ---| ---| ---| ---| ---|
   |  |  |  |  | 1 | 2 |
  3 | [4](#24) | 5 | 6 | [7](#27) | [8](#28) | [9](#29) |
- [10](#210) | [11](#211) | [12](#212) | [13](#213) | [14](#214) | [15](#215) | [16](#216) |
- [17](#217) | [18](#218) | [19](#219) | [20](#220) | [21](#221) | [22](#222) | [23](#223) |
+ [10](#210) | 11 | 12 | 13 | 14 | 15 | 16 |
+ 17 | [18](#218) | [19](#219) | [20](#220) | [21](#221) | [22](#222) | [23](#223) |
  [24](#224) | [25](#225) | [26](#226) | [27](#227) | [28](#228) |
 
 
@@ -217,3 +217,90 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 	- 对于某个表述选择多个候选表述，在选择的时候不应该考虑候选表述是否是处理过的
 	- 当从候选表述集合中找到共指的表述后，遍历应当停止
 	- 在最后一步写入文件测评的时候，应该抛弃single cluster
+
+--- 
+**<span id="223">2-23</span>**
+
+- 写论文，第二章未彻底完成，但已经完善大部分，明天完成CR的任务总结。计划圆满毕业后开源部分论文。
+
+--- 
+**<span id="224">2-24</span>**
+
+- 测试perl的评价函数
+	- document A和document B分别评价结果
+	- 然后合成一个文件C进行评价
+	- 结论：应该合成一个文件后进行评价
+		- Precision: 66.76%
+		- Recall：64.87%
+		- f score：65.8%
+- 写论文
+	- 还是没完全完成第二章
+	- 新增内容：语料资源+评价方法
+	- 目前差新添加的内容和国外基于学习的研究现状
+- 其他：
+	- https://blog.csdn.net/muumian123/article/details/85616175
+	- https://blog.csdn.net/Eastmount/article/details/48566671
+	- https://www.jianshu.com/p/995cc0b8ebe5
+	- https://www.jianshu.com/p/a74fa768594e
+
+--- 
+**<span id="225">2-25</span>**
+
+- MUC（Message Understanding Conference）资源
+	- https://cs.nyu.edu/cs/faculty/grishman/muc6.html
+	- https://www.itl.nist.gov/iaui/894.02/related_projects/muc/proceedings/muc_7_toc.html
+	- https://www-nlpir.nist.gov/related_projects/muc/
+	- https://en.wikipedia.org/wiki/Message_Understanding_Conference
+	- https://catalog.ldc.upenn.edu/LDC2001T02
+	- http://aclweb.org/anthology/C96-1079（MUC6有用）
+	- http://aclweb.org/anthology/M98-1029（MUC7有用）
+	- https://dblp2.uni-trier.de/db/conf/muc/index.html
+- ACE（Automatic Content Extraction）资源
+	- https://en.wikipedia.org/wiki/Automatic_content_extraction
+	- https://tac.nist.gov/publications/index.html（TAC）
+	- http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.78.8442&rep=rep1&type=pdf
+	- https://www.ldc.upenn.edu/collaborations/past-projects/ace
+	- https://www.ldc.upenn.edu/collaborations/past-projects/ace/annotation-tasks-and-specifications
+	- https://www.ldc.upenn.edu/collaborations/past-projects/ace/papers-and-presentations
+	- https://www.ldc.upenn.edu/sites/www.ldc.upenn.edu/files/chinese-events-guidelines-v5.5.1.pdf
+- OntoNotes数据
+	- https://catalog.ldc.upenn.edu/docs/LDC2013T19/OntoNotes-Release-5.0.pdf
+	- https://catalog.ldc.upenn.edu/LDC2013T19
+- 论文
+	- 完成对语料资源的总结，可扩写
+	- 优先完成剩余内容
+
+--- 
+**<span id="226">2-26</span>**
+
+- 写论文
+	- 关于CNN部分，还可以继续扩写
+	- 分配一点时间整理实验
+
+--- 
+**<span id="227">2-27</span>**
+
+- 训练cnn模型，保存在：1551257180
+- 怼进部分实验
+- ！明天完成LSTM+CRF的部分
+
+
+--- 
+**<span id="228">2-28</span>**
+
+今日安排：
+
+- 测试cnn模型
+- LSTM+CRF
+
+今日完成：
+
+- 修改简历
+- 测试cnn参数
+- 完成RNN及LSTM
+
+明日安排：
+
+- LSTM、CRF
+- prf of animacy classifier 
+- add animacy to pr
