@@ -53,7 +53,7 @@ def get_month_name(month):
 def print_month_title(year, month):
     # 打印日历的首部
 
-    cal.write('         ' + str(get_month_name(month)) +  '   ' + str(year) + '          \n')
+    cal.write('###         ' + str(get_month_name(month)) +  '   ' + str(year) + '          \n')
     cal.write('Sun | Mon | Tue  | Wed | Thu | Fri | Sat \n')
     cal.write('---| ---| ---| ---| ---| ---| ---|\n')
  
@@ -80,7 +80,7 @@ def print_month_body(year, month):
 # year = int(raw_input("Please input target year:"))
 # month = int(raw_input("Please input target month:"))
 year = 2019
-month = 2 
+month = 3 
 cal = open(str(year) + '-' + str(month) + '-日历markdown版.txt','w')
 print_month_title(year, month)
 print_month_body(year, month)
