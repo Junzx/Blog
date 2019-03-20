@@ -1,9 +1,9 @@
 ---
-title: 基于多轮处理的指代消解系统-论文笔记
+title: 笔记-多轮处理的指代消解
 date: 2019-03-06
 tags:
 	- NLP
-	- Coreference resolution
+	- Coreference Resolution
 top: 1
 description: 阅读Stanford两篇消解论文的笔记
 ---

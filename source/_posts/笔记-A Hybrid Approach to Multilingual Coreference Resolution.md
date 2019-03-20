@@ -1,8 +1,8 @@
 ---
-title: Hyporch-笔记
+title: 笔记-A Hybrid Approach to Multilingual Coreference Resolution
 date: 2017-19-14
 tags:
-    - CR
+    - Coreference Resolution
     - NLP
 description: 学习笔记
 top: 1

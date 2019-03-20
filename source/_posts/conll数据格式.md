@@ -2,7 +2,7 @@
 title: conll2011数据格式
 date: 2017-8-24
 tags:
-    - CR
+    - Coreference Resolution
     - NLP
 description: conll2011数据的格式相关内容
 top: 1
