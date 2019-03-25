@@ -308,10 +308,10 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 ###         March   2019          
 Sun | Mon | Tue  | Wed | Thu | Fri | Sat 
 ---| ---| ---| ---| ---| ---| ---|
-  |  |  |  |  | [1](#31) | [2](#32) |
- [3](#33) | [4](#34) | [5](#35) | [6](#36) | [7](#37) | [8](#38) | [9](#39) |
- [10](#310) | [11](#311) | [12](#312) | [13](#313) | [14](#314) | [15](#315) | [16](#316) |
- [17](#317) | [18](#318) | [19](#319) | [20](#320) | [21](#321) | [22](#322) | [23](#323) |
+  |  |  |  |  | [1](#31) | 2 |
+ 3 | 4 | [5](#35) | [6](#36) | [7](#37) | [8](#38) | [9](#39) |
+ [10](#310) | 11 | [12](#312) | [13](#313) | [14](#314) | [15](#315) | 16 |
+ 17 | 18 | [19](#319) | [20](#320) | [21](#321) | [22](#322) | [23](#323) |
  [24](#324) | [25](#325) | [26](#326) | [27](#327) | [28](#328) | [29](#329) | [30](#330) |
  [31](#331) |
 
@@ -405,16 +405,71 @@ I am not happy.
 **<span id="319">3-19</span>**
 
 - 完成论文，提交系统
-
-**<span id="320">3-20</span>**
-
 - 完成论文，提交学院
 - 解决git上传过大文件的问题，用了原始的办法
 
-**<span id="321">3-21</span>**
-
+---
+**<span id="320">3-20</span>**
 - 跑Django
 	- 输入的文本回转化为unicode
 	- stanford corenlp不能处理Unicode，需要先encode('utf-8') 
 	- 准确来说，输入的是utf-8，但是分词完了输出的是Unicode列表
 - Django发现原来程序在init部分有问题
+- Multisieve-cr发现了较多bug，明天修复
+- 参考：https://web.stanford.edu/~jurafsky/pubs/coli_a_00152.pdf
+- 关于python的log：
+  - https://zhuanlan.zhihu.com/p/38782314
+  - https://docs.python.org/2/library/logging.handlers.html#filehandler
+
+---
+**<span id="321">3-21</span>**
+
+- 解决bug的一天，包括但不限于：
+  - 打log不完整
+  - SubjectUtils.sieve_utils.py  get_candidate_mentions
+  - SubjectUtils.sieve_utils.py  get_modifier
+  - Experiment.ExperimentResult.load_mention_info_result.py 改为load json
+  - Multisieve.exact_match.py 增加了确定字符串比较
+  - Scorer.api_prf 改成写入log文件，不再print
+  - 所有的print都用pprint工具
+  - 将sieve order新建了一个config py
+  - 基本保证py2、3跨平台
+- 结论
+  - 改版的修饰语提取方法更准一些
+  - 选择候选先行语的方法影响不大，主要影响是句子距离的约束
+
+---
+**<span id="322">3-22</span>**
+
+- 计划本周完成 ML实战的第一遍阅读
+- 遇到决策树相关内容待深入了解
+- 希望明天有好结果
+
+---
+**<span id="323">3-23</span>**
+
+- 今天去笔试+面试，果然金融知识还比较欠缺，不过面试官很nice，期待下周结果
+- 解决sieve_timer装饰器返回的函数丢失原函数名的问题
+- 将exact match改为字符串精确匹配，发现效果尚可
+
+			 Precision | recall | f1_score
+		----------------------------------------
+		bcub:      93.52    21.95    35.56
+		ceafe:     63.29    26.74    37.60
+		muc:       92.26    30.57    45.93
+		blanc:     90.41    15.55    26.54
+- 发现filter sieve用处不大，因为在写入文件的时候就会删掉single Mention
+
+---
+**<span id="325">3-25</span>**
+
+- 快速过了一遍 ML实战 需要深入西瓜书/未完成的内容包括
+  - numpy & 线性代数部分
+  - 决策树、bagging、boosting、adaboost
+  - 手推逻辑回归
+  - k-means的k选择、二分k-means
+  - PCA与word embedding
+  - SVM
+  - SVD与推荐
+- 西瓜书线性模型、贝叶斯
+- 更新自我介绍部分的内容：[about me](https://junzx.github.io/about/)
