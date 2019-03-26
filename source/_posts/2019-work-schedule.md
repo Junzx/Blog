@@ -473,3 +473,25 @@ I am not happy.
   - SVD与推荐
 - 西瓜书线性模型、贝叶斯
 - 更新自我介绍部分的内容：[about me](https://junzx.github.io/about/)
+
+---
+**<span id="326">3-26</span>**
+
+参考链接
+
+信息量、信息熵、条件熵、信息增益
+- [知乎-通俗理解信息熵](https://zhuanlan.zhihu.com/p/26486223)
+
+
+决策树(**TODO**)
+- https://air-yan.github.io//MachineLearning/sv_trees_ch/
+- [知乎-深入浅出理解决策树算法（一）-核心思想](https://zhuanlan.zhihu.com/p/26703300)
+- [知乎-深入浅出理解决策树算法（二）-ID3算法与C4.5算法](https://zhuanlan.zhihu.com/p/26760551)
+- [ID3、C4.5、CART、随机森林、bagging、boosting、Adaboost、GBDT、xgboost算法总结](https://zhuanlan.zhihu.com/p/34534004)
+- [从决策树到随机森林：树型算法的原理与实现](https://zhuanlan.zhihu.com/p/28217071)
+- [决策树算法的Python实现](https://zhuanlan.zhihu.com/p/20794583)
+
+Note
+
+![image](/2019-work-schedule/3-26-1.jpg)
+![image](/2019-work-schedule/3-26-2.jpg)
