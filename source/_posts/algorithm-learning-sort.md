@@ -96,6 +96,7 @@ description: 用python实现直接插入、选择、交换、归并排序
                 while i - gap >= 0: # 注意边界条件
                     if lst[i] < lst[i - gap]:
                         lst[i], lst[i - gap] = lst[i - gap], lst[i]
+                        i -= gap    # 不要少这句！
                     else:
                         break
         return lst

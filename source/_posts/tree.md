@@ -65,7 +65,16 @@ description: 递归遍历二叉树-python实验
 **其中树的结构为：**
 ![image](/tree/1.jpg)
 
+### 遍历顺序：
+- 前序：ROOT→左→右
+- 中序：左→ROOT→右
+- 后序：左→右→ROOT
+
+可以看到，所谓前中后，是针对ROOT节点的访问顺序来说的
+
+
 ### 正确的遍历顺序为：
 - 前序：A B D C E G F H I 
 - 中序：D B A E G C H F I 
 - 后序：D B G E H I F C A
+
