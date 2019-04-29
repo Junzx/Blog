@@ -8,19 +8,20 @@ top: 1
 description: 用python实现直接插入、选择、交换、归并排序
 ---
 
-![image](/algorithm-learning-sort/1.JPG)
 
+![image](/algorithm-learning-sort/1.JPG)
+注：直接插入/选择/交换似乎弄混了，后续有时间填坑。
 
 | 算法 | 稳定性 | 时间复杂度 | 空间复杂度 | 
 | ---| ---| ---| ---| ---|
 | 直接插入排序 | 稳定 | O(n^2) | O(1) |
 | 折半插入排序 | 稳定 | O(n^2) | O(1) |
-| 希尔排序 | 不稳定 | O(n^2) | O(1) |
+| 希尔排序 | 不稳定 | O(n^(3/2)) | O(1) |
 | 冒泡排序 | 稳定 | O(n^2) | O(1) | 
-| 快速排序 | 不稳定 | O(n^2) | 最好：O(log2(n+1))，最坏: O(n)，平均： O(log2n) |
+| 快速排序 | 不稳定 | O(nlogn) | 最好：O(log2(n+1))，最坏: O(n)，平均： O(log2n) |
 | 简单选择排序 | 不稳定 | O(n^2) | O(1) |
-| 堆排序 | 不稳定 | O(nlog2n) | O(1) |
-| 归并排序 | 稳定 | O(nlog2n) | O(n) |
+| 堆排序 | 不稳定 | O(nlog12n) | O(1) |
+| 归并排序 | 稳定 | O(nlogn) | O(n) |
 | 基数排序 | 稳定 | O(d(n+r)) d趟分配和收集，一趟分配需要O(n)，一趟收集需要O(r) | O(r) r个队列 |
 
 ---
@@ -29,6 +30,7 @@ description: 用python实现直接插入、选择、交换、归并排序
 
 
 ### 直接插入排序
+
 
 	def insert_sort(lst):
         """
@@ -141,7 +143,7 @@ description: 用python实现直接插入、选择、交换、归并排序
                 max_idx = rchild
             if max_idx != idx:
                 lst[max_idx], lst[idx] = lst[idx], lst[max_idx]
-                self.__adjust_heap(lst, idx, length)
+                self.__adjust_heap(lst, max_idx, length) # 原来这里有错，把max_idx写成了idx
 
     def __build_heap(self, lst, length):
         for idx in range(0, int(length / 2))[::-1]:
@@ -184,6 +186,9 @@ description: 用python实现直接插入、选择、交换、归并排序
 ---
 
 ### 快速排序
+
+**注意：此代码有bug，如果[2,1]就会报错**
+
 	def quick_sort(self, lst, low, high):
         if low < high:
             mid = self.__Partitions(lst, low, high)
@@ -210,10 +215,54 @@ description: 用python实现直接插入、选择、交换、归并排序
 
 ![image](/algorithm-learning-sort/swap-sort-1.jpg)
 
+**正确的1**
+
+    def QuickSort(arr,low,high):
+    if low<high:
+        mid=Partition(arr,low,high)
+ 
+        QuickSort(arr,low,mid)       
+        QuickSort(arr,mid+1,high)
+    else:
+        return
+ 
+    
+    def Partition(arr,low,high):
+        i=low-1
+        for j in range(low,high):
+            if arr[j]<=arr[high]:
+                i=i+1
+                arr[i],arr[j]=arr[j],arr[i]
+        arr[i+1],arr[high]=arr[high],arr[i+1]
+        return i
+
+**正确的2**
+
+    def QuickSort1(arr, low, high):
+        if low < high:
+            mid = Partition2(arr, low, high)
+
+            QuickSort1(arr, low, mid)
+            QuickSort1(arr, mid + 1, high)
+    def Partition2(L, low, high):
+        key = L[low]
+
+        while low < high:
+            while low < high and L[high] >= key:
+                high -= 1
+            L[low] = L[high]
+            while low < high and L[low] <= key:
+                low += 1
+            L[high] = L[low]
+
+        L[low] = key
+        return low
+
 ### 参考
-- [快速排序 Python实现-cnblogs](https://www.cnblogs.com/kunpengv5/p/7833361.html)
+- [快速排序 Python实现-cnblogs（有错误版本）](https://www.cnblogs.com/kunpengv5/p/7833361.html)
 - [快速排序的四种python实现-csdn](https://blog.csdn.net/razor87/article/details/71155518)
 - [快速排序-cnblogs](https://www.cnblogs.com/foreverking/articles/2234225.html)
+- https://www.cnblogs.com/feichangnice/p/5334195.html （正确的）
 
 
 

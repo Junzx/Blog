@@ -482,7 +482,6 @@ I am not happy.
 信息量、信息熵、条件熵、信息增益
 - [知乎-通俗理解信息熵](https://zhuanlan.zhihu.com/p/26486223)
 
-
 决策树(**TODO**)
 - https://air-yan.github.io//MachineLearning/sv_trees_ch/
 - [知乎-深入浅出理解决策树算法（一）-核心思想](https://zhuanlan.zhihu.com/p/26703300)
@@ -491,9 +490,8 @@ I am not happy.
 - [从决策树到随机森林：树型算法的原理与实现](https://zhuanlan.zhihu.com/p/28217071)
 - [决策树算法的Python实现](https://zhuanlan.zhihu.com/p/20794583)
 
-Note
-见： 
-https://junzx.github.io/2019/04/08/learning-nlp/
+Note见： https://junzx.github.io/2019/04/08/learning-nlp/
+
 ---
 **<span id="327">3-27</span>**
 - 讲决策树很清晰：https://zhuanlan.zhihu.com/p/26760551，包括ID3和C4.5
@@ -532,3 +530,8 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 
 - update: https://junzx.github.io/2019/04/08/learning-nlp/
 - review
+
+---
+**<span id="411">4-11</span>**
+
+learning & bug fix

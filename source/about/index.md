@@ -1,5 +1,5 @@
 ---
-title: about
+title: About
 date: 2018-11-29 11:30:30
 ---
 
@@ -10,11 +10,10 @@ date: 2018-11-29 11:30:30
 - 硕士(2016.9-2019-6) 信息工程学院 软件工程
 - 联系方式:  candnes@sina.com
 - 技能：
-	- python(PyCharm Debugger/Jupyter notebook)
-	- Git/Linux
+	- **Python**(PyCharm Debugger/Jupyter notebook)
+	- Git/Linux/Vim/Office/Markdown
 	- Django/BeautifulSoup
 	- Tensorflow/Sklearn
-	- Office/Markdown
 - 个人兴趣：
 	- NLP相关
 	- 中文指代消解研究 (可参考：[指代消解基础](https://junzx.github.io/2018/04/24/%E6%8C%87%E4%BB%A3%E6%B6%88%E8%A7%A3%E5%9F%BA%E7%A1%80/) )
@@ -22,6 +21,7 @@ date: 2018-11-29 11:30:30
 - 爱好：游泳/看书/摄影/Minecraft
 - 希望在生产生活中使用所学技能，认同技术落地
 
+---
 
 ## **项目经历**
 
@@ -36,7 +36,9 @@ date: 2018-11-29 11:30:30
 3. 用户聚类：使用K-means算法对用户进行聚类；
 4. 推荐：对某个用户找到其相似用户；根据这些用户喜好推荐。
 
-涉及技术：协同过滤、K-means
+涉及技术：
+- 准备数据：构建http请求、正则抽取有用信息
+- 协同过滤、K-means
 
 **中文指代消解问题研究 (2017.12-2018.10)**
 
@@ -53,9 +55,13 @@ date: 2018-11-29 11:30:30
 贡献：
 - 构建了一个完整的中文指代消解系统；
 - 使用Bi-LSTM-CRF提升表述提取的准确率；
-- 使用分类器对词语属性分类，提升代词消解结果。
+- 使用CNN对词语属性分类，提升代词消解结果。
 
-涉及技术：文本分析工具(StanfordCoreNLP/NLTK)、python、Tensorflow、textCNN
+涉及技术：
+- 文本处理工具
+  - StanfordCoreNLP：分词、POS、NER、Parse
+  - NLTK：分析Parse Tree
+- Tensorflow：textCNN（词语属性分类判别）
 
 ## **实习经历**
 
@@ -64,22 +70,24 @@ date: 2018-11-29 11:30:30
 参与公司金融信息抽取平台项目的研发，跟进项目进度，根据需求完成工作
 
 职责：
-- 参与公司金融领域信息抽取平台的开发，跟进项目进度，根据需求完成工作。
+- 参与公司金融领域信息抽取平台的开发，跟进项目进度，根据需求完成工作。（非PDF解析）
 - 该平台针对上市公司文档，抽取有用信息形成简报，方便使用者快速了解文档内容。
 - 其中待抽取信息分为以下四类
 	1. 抽取部分：使用正则表达式直接从文档抽取
 	2. 抽取+判别部分：从文档抽取多个候选，进行分类判定
-	3. 推理部分：根据文档对1和2的信息进行重组或者计算
+	3. 推理部分：根据给定规则对1和2的信息进行重组或者计算
 	4. Summary部分：总结模板形成summary
 
 工作
 - 对业务逻辑进行整理，形成文档
-- 负责项目中推理部分和Summary部分的实现以及部分抽取+判别任务的研究。（3、 4以及部分2）
+- 负责项目中推理部分和Summary部分的实现以及部分抽取+判别任务的研究。（3、 4以及少部分2）
+
+---
 
 ## **成果**
 
 - 发表论文
-> Zhu Y. A book recommendation algorithm based on collaborative filtering[C]. international conference on computer science and network technology, 2016: 286-289.(EI: 20180104610894)
+> Zhu Y. A Book Recommendation Algorithm based on Collaborative Filtering[C]. international conference on computer science and network technology, 2016: 286-289.(EI: 20180104610894)
 >
 > Zhu Y, Song W, Liu L, et al. Collaborative Filtering Recommender Algorithm Based on Comments and Score[C]. international symposium on computational intelligence and design, 2017.(EI: 20182105218451)
 >
