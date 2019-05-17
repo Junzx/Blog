@@ -552,3 +552,8 @@ Sun | Mon | Tue  | Wed | Thu | Fri | Sat
 - LeTax相关：
 	- https://blog.csdn.net/xiahouzuoxin/article/details/26478179
 	- https://wdxtub.com/2016/03/26/latex-notation-table/
+
+**<span id="516">5-16</span>**
+
+- 相关手续
+- 完成各环境的配置
