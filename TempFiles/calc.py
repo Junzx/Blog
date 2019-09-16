@@ -69,7 +69,8 @@ def print_month_body(year, month):
         # cal.write(' ') # 打印行首的两个空格
         cal.write('  |' * (i %7))   # 从星期几开始则空5*几个空格
     for j in range(1, get_num_of_days_in_month(year, month)+1):
-        cal.write(' [' + str(j) + '](#' + str(month) + str(j) + ') |')# 宽度控制，4+1=5
+        # cal.write(' [' + str(j) + '](#' + str(month) + str(j) + ') |')# 宽度控制，4+1=5
+        cal.write('[' + str(i) + '] | ')
         i += 1
         if i % 7 == 0:  # i用于计数和换行
             cal.write('\n')   # 每换行一次行首继续空格
@@ -80,7 +81,7 @@ def print_month_body(year, month):
 # year = int(raw_input("Please input target year:"))
 # month = int(raw_input("Please input target month:"))
 year = 2019
-month = 5 
+month = 9
 cal = open(str(year) + '-' + str(month) + '-日历markdown版.txt','w')
 print_month_title(year, month)
 print_month_body(year, month)

@@ -66,7 +66,7 @@ index:
   excerpt_link: Read More  
 
 close_aside: false  #close sidebar in post page if true
-mathjax: false      #enable mathjax if true
+mathjax: False      #enable mathjax if true
 
 ### Creative Commons License Support, see http://creativecommons.org/ 
 ### you can choose: by , by-nc , by-nc-nd , by-nc-sa , by-nd , by-sa , zero
@@ -148,3 +148,4 @@ baidu_search:     ## http://zn.baidu.com/
 tinysou_search:     ## http://tinysou.com/
   enable: false
   id:  ## e.g. "4ac092ad8d749fdc6293" for your tiny search id
+
