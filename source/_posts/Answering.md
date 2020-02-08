@@ -3,6 +3,10 @@ layout: stacked
 title: Stacked Attention Networks for Image Question Answering
 date: 2019-11-22 17:04:45
 tags:
+  - 学习
+  - 多模态
+description: 论文笔记
+mathjax: true
 ---
 
 ### [Stacked Attention Networks for Image Question Answering](https://arxiv.org/pdf/1511.02274.pdf)
@@ -15,7 +19,7 @@ tags:
 ##### 任务描述
 
 以论文中的例子来描述任务，给定：
-- 一张图片：![image](/uploads/d66228ad4f73fc1e3636c0ce3500a3ef/image.png)
+- 一张图片：![image](/images/2.png)
 - 一个问题：what are sitting in the basket on a bicycle?
 
 #### 模型部分
@@ -39,27 +43,27 @@ tags:
 
 对于前两步得到的$`v_I`$和$`v_Q`$，首先将他们丢到一个简单的网络层中，然后通过softmax生成图像区域上的注意力分布，见下图：
 
-![image](/uploads/e464ef434278bc1ce6af922a03c4ae30/image.png)
+![image](/images/3.png)
 
 其中，$`v_I`$的维度是`d*m`，$`v_Q`$的维度是`d`，这里d是图像尺寸，m是图像区域数。最终得到的$`p_I`$是一个m维的向量，用于表示对应于给定$`v_Q`$的每个图像区域的注意力概率。
 
 根据注意力分布，计算来自一个区域每个图像矢量的加权和，然后将其与$`v_Q`$进行结合（见下图）
 
-![image](/uploads/232c4d1f0880dc6cf1539e2793821aa9/image.png)
+![image](/images/4.png)
 
 这种做法的牛逼之处在于结合了问题信息和潜在答案的视觉信息，比简单将图像和文本句子信息组合更厉害。
 
 但是，作者指出，对于复杂问题，一层attention层不足以得到正确的答案，因此作者使用了多层的attention，每层都会尽可能提取细粒度的信息，对于第k层，采用如下的计算方式：
 
-<center>![image](/uploads/9c2c70ee406240ad54e081cc1719354d/image.png)</center>
+<center>![image](/images/4.png)</center>
 
 不断将新得到的向量叠加在之前得到的向量上：
 
-<center>![image](/uploads/a5b4b305e461f2cc20ce70e2497d240f/image.png)</center>
+<center>![image](/images/5.png)</center>
 
 最终，重复K次操作，再接一个softmax得到最终的输出：
 
-<center>![image](/uploads/9f81a96ee87bfaf2983c1fe1743b7551/image.png)</center>
+<center>![image](/images/6.png)</center>
 
 ##### 实验部分
 
@@ -67,7 +71,6 @@ tags:
 
 ###### 论文中的示例图
 
-![image](/uploads/05998e9676ad1d76f0d249190fb83c2c/image.png)
-
+![image](/images/7.png)
 
 

@@ -19,16 +19,16 @@ description: 年初制定，规划一年的计划。
   
   - [ ] 英语
   - [ ] 手写SQL
-  - [ ] python高级编程——熟练掌握OO、闭包、装饰器、函数式编程、进程与线程
+  - [x] python高级编程——熟练掌握OO、闭包、装饰器、函数式编程、进程与线程
   - [ ] python爬虫框架——scrapy、对ajax网页爬取
   - [ ] python中web框架——Django、Flask
-  - [ ] 机器学习知识——理论、实战
-  - [ ] Tensorflow/深度学习
-  - [ ] Letax语法
+  - [x] 机器学习知识——理论、实战
+  - [x] Tensorflow/深度学习
+  - [x] Letax语法
   - [ ] Excel中各种操作——VBS等
   - [ ] PPT制作
   - [ ] 金融的知识
-  - [ ] Docker入门
+  - [x] Docker入门
 
 
 - 应完成的项目
